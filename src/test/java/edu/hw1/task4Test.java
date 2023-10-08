@@ -6,16 +6,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class task4Test {
 
-    @Test
-    void fixString() {
-        String actual=task4.fixString("123456");
+    @Test void fixString() {
+        String actual = task4.fixString("123456");
         String expected = "214365";
-        assertEquals(expected,actual);
-        actual=task4.fixString("hTsii  s aimex dpus rtni.g");
+        assertEquals(expected, actual);
+        actual = task4.fixString("hTsii  s aimex dpus rtni.g");
         expected = "This is a mixed up string.";
-        assertEquals(expected,actual);
-        actual=task4.fixString("badce");
+        assertEquals(expected, actual);
+        actual = task4.fixString("badce");
         expected = "abcde";
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 }

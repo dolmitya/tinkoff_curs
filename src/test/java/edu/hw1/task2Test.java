@@ -8,11 +8,11 @@ class task2Test {
 
     @Test
     void countDigits() {
-        int actual=task2.countDigits(3786);
+        int actual = task2.countDigits(3786);
         int expected = 4;
-        assertEquals(expected,actual);
-        actual=task2.countDigits(-54);
+        assertEquals(expected, actual);
+        actual = task2.countDigits(-54);
         expected = 2;
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 }
