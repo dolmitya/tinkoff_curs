@@ -24,7 +24,7 @@ public class Task1 {
         return (result && flag && (str.charAt(0) != ':') && (str.charAt(str.length() - 1) != ':'));
     }
 
-    public static int MinutToSeconds(String time) {
+    public static int minutToSeconds(String time) {
         int result = -1;
         if (check(time)) {
             int pos = time.indexOf(":");
@@ -41,7 +41,7 @@ public class Task1 {
         Scanner cin = new Scanner(System.in);
         LOGGER.info("Input a time: ");
         String time = cin.nextLine();
-        LOGGER.info(MinutToSeconds(time));
+        LOGGER.info(minutToSeconds(time));
         cin.close();
     }
 }
