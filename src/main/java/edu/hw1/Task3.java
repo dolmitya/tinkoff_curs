@@ -57,7 +57,11 @@ public class Task3 {
         for (int i = 0; i < l2; i++) {
             mas2[i] = cin.nextInt();
         }
-        LOGGER.info(isNestable(mas1, mas2));
+        if (l1 != 0 & l2 != 0) {
+            LOGGER.info(isNestable(mas1, mas2));
+        } else {
+            LOGGER.info("Error");
+        }
         cin.close();
     }
 }
