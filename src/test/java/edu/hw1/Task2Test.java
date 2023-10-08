@@ -14,5 +14,8 @@ class Task2Test {
         actual = Task2.countDigits(-54);
         expected = 2;
         assertEquals(expected, actual);
+        actual = Task2.countDigits(3894769);
+        expected = 7;
+        assertEquals(expected, actual);
     }
 }
