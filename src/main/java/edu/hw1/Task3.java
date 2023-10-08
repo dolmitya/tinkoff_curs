@@ -15,7 +15,10 @@ public class Task3 {
         boolean result = false;
         int l1 = a1.length;
         int l2 = a2.length;
-        int mina1 = a1[0], maxa1 = a1[0], mina2 = a2[0], maxa2 = a2[0];
+        int mina1 = a1[0];
+        int maxa1 = a1[0];
+        int mina2 = a2[0];
+        int maxa2 = a2[0];
         for (int i = 1; i < l1; i++) {
             if (a1[i] < mina1) {
                 mina1 = a1[i];

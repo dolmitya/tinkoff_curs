@@ -17,7 +17,7 @@ public class Task5 {
         int mn = 1;
         while (x > 0) {
             result += (x % c2 / c1 + x % c1) * mn;
-            x = x / c2;
+            x /= c2;
             mn *= c1;
         }
         return result;
