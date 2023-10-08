@@ -15,28 +15,30 @@ public class Task3 {
         boolean result = false;
         int l1 = a1.length;
         int l2 = a2.length;
-        int mina1 = a1[0];
-        int maxa1 = a1[0];
-        int mina2 = a2[0];
-        int maxa2 = a2[0];
-        for (int i = 1; i < l1; i++) {
-            if (a1[i] < mina1) {
-                mina1 = a1[i];
+        if (l1 != 0 & l2 != 0) {
+            int mina1 = a1[0];
+            int maxa1 = a1[0];
+            int mina2 = a2[0];
+            int maxa2 = a2[0];
+            for (int i = 1; i < l1; i++) {
+                if (a1[i] < mina1) {
+                    mina1 = a1[i];
+                }
+                if (a1[i] > maxa1) {
+                    maxa1 = a1[i];
+                }
             }
-            if (a1[i] > maxa1) {
-                maxa1 = a1[i];
+            for (int i = 1; i < l2; i++) {
+                if (a2[i] < mina2) {
+                    mina2 = a2[i];
+                }
+                if (a2[i] > maxa2) {
+                    maxa2 = a2[i];
+                }
             }
-        }
-        for (int i = 1; i < l2; i++) {
-            if (a2[i] < mina2) {
-                mina2 = a2[i];
+            if (mina1 > mina2 & maxa1 < maxa2) {
+                result = true;
             }
-            if (a2[i] > maxa2) {
-                maxa2 = a2[i];
-            }
-        }
-        if (mina1 > mina2 & maxa1 < maxa2) {
-            result = true;
         }
         return result;
     }
@@ -57,11 +59,7 @@ public class Task3 {
         for (int i = 0; i < l2; i++) {
             mas2[i] = cin.nextInt();
         }
-        if (l1 != 0 & l2 != 0) {
-            LOGGER.info(isNestable(mas1, mas2));
-        } else {
-            LOGGER.info("Error");
-        }
+        LOGGER.info(isNestable(mas1, mas2));
         cin.close();
     }
 }
