@@ -11,7 +11,7 @@ public class Task5 {
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public static int izm(int x) {
-        final int c2=100, c1=10;
+        final int c2 = 100, c1 = 10;
         int result = 0;
         int mn = 1;
         while (x > 0) {
@@ -23,7 +23,7 @@ public class Task5 {
     }
 
     public static boolean isPalindrome(int integer) {
-        final int des=10;
+        final int des = 10;
         int palindrome = integer;
         int reverse = 0;
         while (palindrome != 0) {

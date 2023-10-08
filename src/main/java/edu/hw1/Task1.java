@@ -25,7 +25,7 @@ public class Task1 {
     }
 
     public static int minutToSeconds(String time) {
-        final int maxv=60, minv=0;
+        final int maxv = 60, minv = 0;
         int result = -1;
         if (check(time)) {
             int pos = time.indexOf(":");
