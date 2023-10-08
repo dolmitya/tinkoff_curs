@@ -13,6 +13,7 @@ public class Task6 {
 
     public static int countK(int x) {
         int result = 1;
+        final int tis = 1000;
         final int POST_KAPR = 6174;
         final int des = 10;
         int copx = x;
@@ -26,12 +27,12 @@ public class Task6 {
         int minx = 0;
         int maxx = 0;
         int mn1 = 1;
-        int mn2 = 1000;
+        int mn2 = tis;
         for (int i = 0; i < n; i++) {
             maxx += mn1 * a[i];
             minx += mn2 * a[i];
-            mn1*=des;
-            mn2/=des;
+            mn1 *= des;
+            mn2 /= des;
         }
         Integer raz = maxx - minx;
         if (!raz.equals(POST_KAPR)) {
