@@ -13,11 +13,12 @@ public class Task5 {
     public static int izm(int x) {
         final int c2 = 100;
         final int c1 = 10;
+        int copx = x;
         int result = 0;
         int mn = 1;
-        while (x > 0) {
-            result += (x % c2 / c1 + x % c1) * mn;
-            x /= c2;
+        while (copx > 0) {
+            result += (copx % c2 / c1 + copx % c1) * mn;
+            copx = copx / c2;
             mn *= c1;
         }
         return result;
@@ -36,12 +37,14 @@ public class Task5 {
     }
 
     public static boolean isPalindromeDescendant(int x) {
+        final int MAX_CIF = 9;
+        int copx = x;
         boolean result = false;
-        while (!result && x > 9) {
-            if (isPalindrome(x)) {
+        while (!result && copx > MAX_CIF) {
+            if (isPalindrome(copx)) {
                 result = true;
             } else {
-                x = izm(x);
+                copx = izm(copx);
             }
         }
         return result;

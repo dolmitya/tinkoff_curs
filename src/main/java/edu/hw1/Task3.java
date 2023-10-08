@@ -57,7 +57,7 @@ public class Task3 {
         for (int i = 0; i < l2; i++) {
             mas2[i] = cin.nextInt();
         }
-        System.out.print(isNestable(mas1, mas2));
+        LOGGER.info(isNestable(mas1, mas2));
         cin.close();
     }
 }
