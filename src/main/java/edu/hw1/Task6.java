@@ -1,7 +1,7 @@
 package edu.hw1;
 
-import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
