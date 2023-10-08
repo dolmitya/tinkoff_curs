@@ -3,7 +3,10 @@ package edu.hw1;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
-public class task3 {
+public class Task3 {
+    private Task3() {
+    }
+
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public static boolean isNestable(int[] a1, int[] a2) {

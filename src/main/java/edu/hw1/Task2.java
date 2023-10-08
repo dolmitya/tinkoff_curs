@@ -3,7 +3,10 @@ package edu.hw1;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
-public class task2 {
+public class Task2 {
+    private Task2() {
+    }
+
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public static int countDigits(int dig) {

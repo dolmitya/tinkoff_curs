@@ -4,19 +4,19 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class task1Test {
+class Task1Test {
     @Test
     void minutToSeconds() {
-        int actual = task1.MinutToSeconds("1e:10");
+        int actual = Task1.MinutToSeconds("1e:10");
         int expected = -1;
         assertEquals(expected, actual);
-        actual = task1.MinutToSeconds("10:10");
+        actual = Task1.MinutToSeconds("10:10");
         expected = 610;
         assertEquals(expected, actual);
-        actual = task1.MinutToSeconds(":1046");
+        actual = Task1.MinutToSeconds(":1046");
         expected = -1;
         assertEquals(expected, actual);
-        actual = task1.MinutToSeconds("50:46");
+        actual = Task1.MinutToSeconds("50:46");
         expected = 3046;
         assertEquals(expected, actual);
     }

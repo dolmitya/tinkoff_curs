@@ -3,7 +3,10 @@ package edu.hw1;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
-public class task4 {
+public class Task4 {
+    private Task4() {
+    }
+
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public static String fixString(String s) {

@@ -3,7 +3,10 @@ package edu.hw1;
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
-public class task1 {
+public class Task1 {
+    private Task1() {
+    }
+
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public static Boolean check(String str) {
@@ -40,4 +43,3 @@ public class task1 {
         cin.close();
     }
 }
-
