@@ -25,13 +25,14 @@ public class Task1 {
     }
 
     public static int minutToSeconds(String time) {
+        final int maxv=60, minv=0;
         int result = -1;
         if (check(time)) {
             int pos = time.indexOf(":");
             int min = Integer.parseInt(time.substring(0, pos));
             int sec = Integer.parseInt(time.substring(pos + 1, time.length()));
-            if (sec < 60 || sec > 0) {
-                result = min * 60 + sec;
+            if (sec < maxv || sec > minv) {
+                result = min * maxv + sec;
             }
         }
         return result;
