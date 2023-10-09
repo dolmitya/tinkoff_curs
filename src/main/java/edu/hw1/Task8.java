@@ -1,4 +1,4 @@
-package edu.hwONE;
+package edu.hw1;
 
 import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
