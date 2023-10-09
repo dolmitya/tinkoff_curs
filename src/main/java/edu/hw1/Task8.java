@@ -11,20 +11,37 @@ public class Task8 {
 
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
-    public static boolean isFight(int[][] array, int i, int j) {
+    public static boolean to(int[][] array, int i, int j) {
         boolean result = false;
         final int ONE = 1;
         final int TWO = 2;
         final int n = 8;
-        if ((array[i][j] == ONE)
-            && ((i + TWO < n && j + ONE < n && array[i + TWO][j + ONE] == ONE)
+        if ((i + TWO < n && j + ONE < n && array[i + TWO][j + ONE] == ONE)
             || (i + TWO < n && j - ONE >= 0 && array[i + TWO][j - ONE] == ONE)
             || (i - TWO >= 0 && j + ONE < n && array[i - TWO][j + ONE] == ONE)
-            || (i - TWO >= 0 && j - ONE >= 0 && array[i - TWO][j - ONE] == ONE)
-            || (i + ONE < n && j + TWO < n && array[i + ONE][j + TWO] == ONE)
+            || (i - TWO >= 0 && j - ONE >= 0 && array[i - TWO][j - ONE] == ONE)) {
+            result = true;
+        }
+        return result;
+    }
+
+    public static boolean ot(int[][] array, int i, int j) {
+        boolean result = false;
+        final int ONE = 1;
+        final int TWO = 2;
+        final int n = 8;
+        if ((i + ONE < n && j + TWO < n && array[i + ONE][j + TWO] == ONE)
             || (i + ONE < n && j - TWO >= 0 && array[i + ONE][j - TWO] == ONE)
             || (i - ONE >= 0 && j + TWO < n && array[i - ONE][j + TWO] == ONE)
-            || (i - ONE >= 0 && j - TWO >= 0 && array[i - ONE][j - TWO] == ONE))) {
+            || (i - ONE >= 0 && j - TWO >= 0 && array[i - ONE][j - TWO] == ONE)) {
+            result = true;
+        }
+        return result;
+    }
+
+    public static boolean isFight(int[][] array, int i, int j) {
+        boolean result = false;
+        if ((array[i][j] == 1) && (to(array, i, j) || ot(array, i, j))) {
             result = true;
         }
         return result;
@@ -57,4 +74,3 @@ public class Task8 {
         cin.close();
     }
 }
-
