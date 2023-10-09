@@ -21,7 +21,7 @@ public class Task1 {
                 result = false;
             }
         }
-        return (result && flag && (str.charAt(0) != ':') && (str.charAt(str.length() - 1) != ':'));
+        return (result && flag && (str.charAt(str.length() - 3) == ':'));
     }
 
     public static int minutToSeconds(String time) {
