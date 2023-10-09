@@ -17,6 +17,12 @@ class Task7Test {
         actual = Task7.rotateRight(17, 2);
         expected = 12;
         assertEquals(expected, actual);
+        actual = Task7.rotateRight(-17, 2);
+        expected = -1;
+        assertEquals(expected, actual);
+        actual = Task7.rotateRight(8, -1);
+        expected = 1;
+        assertEquals(expected, actual);
     }
 
     @Test
@@ -29,6 +35,9 @@ class Task7Test {
         assertEquals(expected, actual);
         actual = Task7.rotateLeft(17, 2);
         expected = 6;
+        assertEquals(expected, actual);
+        actual = Task7.rotateRight(-10, 3);
+        expected = -1;
         assertEquals(expected, actual);
     }
 }

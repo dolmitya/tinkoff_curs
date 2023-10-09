@@ -12,23 +12,34 @@ public class Task7 {
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public static int rotateRight(int dig, int kol) {
-        int result = 0;
-        String binary = Integer.toBinaryString(dig);
-        for (int i = 0; i < kol; i++) {
-            binary = binary.charAt(binary.length() - 1) + binary.substring(0, binary.length() - 1);
+        int result = -1;
+        if (dig >= 0) {
+            if (kol >= 0) {
+                String binary = Integer.toBinaryString(dig);
+                for (int i = 0; i < kol; i++) {
+                    binary = binary.charAt(binary.length() - 1) + binary.substring(0, binary.length() - 1);
+                }
+                result = Integer.parseInt(binary, 2);
+            } else {
+                result = rotateLeft(dig, Math.abs(kol));
+            }
         }
-        result = Integer.parseInt(binary, 2);
         return result;
     }
 
     public static int rotateLeft(int dig, int kol) {
-        final int del = 2;
-        int result = 0;
-        String binary = Integer.toBinaryString(dig);
-        for (int i = 0; i < kol; i++) {
-            binary = binary.substring(1, binary.length()) + binary.charAt(0);
+        int result = -1;
+        if (dig >= 0) {
+            if (kol >= 0) {
+                String binary = Integer.toBinaryString(dig);
+                for (int i = 0; i < kol; i++) {
+                    binary = binary.substring(1, binary.length()) + binary.charAt(0);
+                }
+                result = Integer.parseInt(binary, 2);
+            } else {
+                result = rotateRight(dig, Math.abs(kol));
+            }
         }
-        result = Integer.parseInt(binary, 2);
         return result;
     }
 
