@@ -38,8 +38,6 @@ public class Task8 {
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
         final int n = 8;
-        LOGGER.info("Input a length array: ");
-        int lONE = cin.nextInt();
         int[][] array = new int[n][n];
         LOGGER.info("Input a array: ");
         for (int i = 0; i < n; i++) {
