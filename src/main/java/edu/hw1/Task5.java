@@ -40,7 +40,7 @@ public class Task5 {
         final int MAX_CIF = 9;
         int copx = x;
         boolean result = false;
-        String strX=Integer.toString(x);
+        String strX = Integer.toString(x);
         if (strX.length() % 2 == 0) {
             while (!result && copx > MAX_CIF) {
                 if (isPalindrome(copx)) {

@@ -19,14 +19,14 @@ public class Task8 {
         for (int i = 0; i < n && result; i++) {
             for (int j = 0; j < n && result; j++) {
                 if (array[i][j] == ONE) {
-                    if ((i + TWO < n && j + ONE < n && array[i + TWO][j + ONE] == ONE) ||
-                        (i + TWO < n && j - ONE >= 0 && array[i + TWO][j - ONE] == ONE) ||
-                        (i - TWO >= 0 && j + ONE < n && array[i - TWO][j + ONE] == ONE) ||
-                        (i - TWO >= 0 && j - ONE >= 0 && array[i - TWO][j - ONE] == ONE) ||
-                        (i + ONE < n && j + TWO < n && array[i + ONE][j + TWO] == ONE) ||
-                        (i + ONE < n && j - TWO >= 0 && array[i + ONE][j - TWO] == ONE) ||
-                        (i - ONE >= 0 && j + TWO < n && array[i - ONE][j + TWO] == ONE) ||
-                        (i - ONE >= 0 && j - TWO >= 0 && array[i - ONE][j - TWO] == ONE)) {
+                    if ((i + TWO < n && j + ONE < n && array[i + TWO][j + ONE] == ONE)
+                        || (i + TWO < n && j - ONE >= 0 && array[i + TWO][j - ONE] == ONE)
+                        || (i - TWO >= 0 && j + ONE < n && array[i - TWO][j + ONE] == ONE)
+                        || (i - TWO >= 0 && j - ONE >= 0 && array[i - TWO][j - ONE] == ONE)
+                        || (i + ONE < n && j + TWO < n && array[i + ONE][j + TWO] == ONE)
+                        || (i + ONE < n && j - TWO >= 0 && array[i + ONE][j - TWO] == ONE)
+                        || (i - ONE >= 0 && j + TWO < n && array[i - ONE][j + TWO] == ONE)
+                        || (i - ONE >= 0 && j - TWO >= 0 && array[i - ONE][j - TWO] == ONE)) {
                         result = false;
                     }
                 }

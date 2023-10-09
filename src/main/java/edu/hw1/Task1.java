@@ -14,6 +14,7 @@ public class Task1 {
     public static Boolean check(String str) {
         Boolean result = true;
         Boolean flag = false;
+        final int TREE = 3;
         for (int i = 0; i < str.length() & result; i++) {
             if ((str.charAt(i) == ':') && (!flag)) {
                 flag = true;
@@ -21,7 +22,7 @@ public class Task1 {
                 result = false;
             }
         }
-        return (result && flag && (str.charAt(str.length() - 3) == ':'));
+        return (result && flag && (str.charAt(str.length() - TREE) == ':'));
     }
 
     public static int minutToSeconds(String time) {
