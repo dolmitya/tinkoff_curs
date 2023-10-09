@@ -16,14 +16,15 @@ public class Task8 {
         final int ONE = 1;
         final int TWO = 2;
         final int n = 8;
-        if ((i + TWO < n && j + ONE < n && array[i + TWO][j + ONE] == ONE)
+        if ((array[i][j] == ONE)
+            && ((i + TWO < n && j + ONE < n && array[i + TWO][j + ONE] == ONE)
             || (i + TWO < n && j - ONE >= 0 && array[i + TWO][j - ONE] == ONE)
             || (i - TWO >= 0 && j + ONE < n && array[i - TWO][j + ONE] == ONE)
             || (i - TWO >= 0 && j - ONE >= 0 && array[i - TWO][j - ONE] == ONE)
             || (i + ONE < n && j + TWO < n && array[i + ONE][j + TWO] == ONE)
             || (i + ONE < n && j - TWO >= 0 && array[i + ONE][j - TWO] == ONE)
             || (i - ONE >= 0 && j + TWO < n && array[i - ONE][j + TWO] == ONE)
-            || (i - ONE >= 0 && j - TWO >= 0 && array[i - ONE][j - TWO] == ONE)) {
+            || (i - ONE >= 0 && j - TWO >= 0 && array[i - ONE][j - TWO] == ONE))) {
             result = true;
         }
         return result;
@@ -31,15 +32,11 @@ public class Task8 {
 
     public static boolean knightBoardCapture(int[][] array) {
         final int n = 8;
-        final int ONE = 1;
-        final int TWO = 2;
         boolean result = true;
         for (int i = 0; i < n && result; i++) {
             for (int j = 0; j < n && result; j++) {
-                if (array[i][j] == ONE) {
-                    if (isFight(array, i, j)) {
-                        result = false;
-                    }
+                if (isFight(array, i, j)) {
+                    result = false;
                 }
             }
         }
