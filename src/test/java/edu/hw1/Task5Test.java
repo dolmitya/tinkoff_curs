@@ -12,7 +12,7 @@ class Task5Test {
         boolean expected = true;
         assertEquals(expected, actual);
         actual = Task5.isPalindromeDescendant(11211);
-        expected = false;
+        expected = true;
         assertEquals(expected, actual);
         actual = Task5.isPalindromeDescendant(211);
         expected = false;

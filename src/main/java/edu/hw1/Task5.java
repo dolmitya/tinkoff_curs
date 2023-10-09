@@ -49,6 +49,8 @@ public class Task5 {
                     copx = izm(copx);
                 }
             }
+        } else {
+            result = isPalindrome(copx);
         }
         return result;
     }
