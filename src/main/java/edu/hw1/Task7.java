@@ -12,7 +12,6 @@ public class Task7 {
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public static int rotateRight(int dig, int kol) {
-        final int del = 2;
         int result = 0;
         String binary = Integer.toBinaryString(dig);
         for (int i = 0; i < kol; i++) {
