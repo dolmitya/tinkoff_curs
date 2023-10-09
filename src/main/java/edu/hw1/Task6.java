@@ -14,7 +14,6 @@ public class Task6 {
     public static int countK(int x) {
         int result = 1;
         final int tis = 1000;
-        final int POST_KAPR = 6174;
         final int des = 10;
         int copx = x;
         final int n = 4;
@@ -35,7 +34,7 @@ public class Task6 {
             mn2 /= des;
         }
         Integer raz = maxx - minx;
-        if (!raz.equals(POST_KAPR)) {
+        if (!raz.equals(6174)) {
             result += countK(raz);
         }
         return result;
