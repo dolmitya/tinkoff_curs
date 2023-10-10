@@ -6,8 +6,8 @@ import org.apache.logging.log4j.LogManager;
 @SuppressWarnings("uncommentedmain")
 
 public class Task1 {
-    final static int MaxSecond = 60;
-    final static int MinSecond = 0;
+    final static int MAXSECOND = 60;
+    final static int MINSECOND = 0;
 
     private Task1() {
     }
@@ -34,8 +34,8 @@ public class Task1 {
             int pos = time.indexOf(":");
             int min = Integer.parseInt(time.substring(0, pos));
             int sec = Integer.parseInt(time.substring(pos + 1, time.length()));
-            if (sec < MaxSecond || sec > MinSecond) {
-                result = min * MaxSecond + sec;
+            if (sec < MAXSECOND || sec > MINSECOND) {
+                result = min * MAXSECOND + sec;
             }
         }
         return result;
