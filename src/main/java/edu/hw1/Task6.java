@@ -12,9 +12,14 @@ public class Task6 {
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public static int countK(int x) {
-        int result = 1;
+        int result;
         final int tis = 1000;
         final int POST_KAPR = 6174;
+        if (x == POST_KAPR) {
+            result = 0;
+        } else {
+            result = 1;
+        }
         final int des = 10;
         int copx = x;
         final int n = 4;
