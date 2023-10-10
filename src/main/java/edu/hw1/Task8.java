@@ -9,7 +9,7 @@ public class Task8 {
 
     final static int ONE = 1;
     final static int TWO = 2;
-    final static int n = 8;
+    final static int N = 8;
 
     private Task8() {
     }
@@ -18,9 +18,9 @@ public class Task8 {
 
     private static boolean to(int[][] array, int i, int j) {
         boolean result = false;
-        if ((i + TWO < n && j + ONE < n && array[i + TWO][j + ONE] == ONE)
-            || (i + TWO < n && j - ONE >= 0 && array[i + TWO][j - ONE] == ONE)
-            || (i - TWO >= 0 && j + ONE < n && array[i - TWO][j + ONE] == ONE)
+        if ((i + TWO < N && j + ONE < N && array[i + TWO][j + ONE] == ONE)
+            || (i + TWO < N && j - ONE >= 0 && array[i + TWO][j - ONE] == ONE)
+            || (i - TWO >= 0 && j + ONE < N && array[i - TWO][j + ONE] == ONE)
             || (i - TWO >= 0 && j - ONE >= 0 && array[i - TWO][j - ONE] == ONE)) {
             result = true;
         }
@@ -29,9 +29,9 @@ public class Task8 {
 
     private static boolean ot(int[][] array, int i, int j) {
         boolean result = false;
-        if ((i + ONE < n && j + TWO < n && array[i + ONE][j + TWO] == ONE)
-            || (i + ONE < n && j - TWO >= 0 && array[i + ONE][j - TWO] == ONE)
-            || (i - ONE >= 0 && j + TWO < n && array[i - ONE][j + TWO] == ONE)
+        if ((i + ONE < N && j + TWO < N && array[i + ONE][j + TWO] == ONE)
+            || (i + ONE < N && j - TWO >= 0 && array[i + ONE][j - TWO] == ONE)
+            || (i - ONE >= 0 && j + TWO < N && array[i - ONE][j + TWO] == ONE)
             || (i - ONE >= 0 && j - TWO >= 0 && array[i - ONE][j - TWO] == ONE)) {
             result = true;
         }
@@ -48,8 +48,8 @@ public class Task8 {
 
     public static boolean knightBoardCapture(int[][] array) {
         boolean result = true;
-        for (int i = 0; i < n && result; i++) {
-            for (int j = 0; j < n && result; j++) {
+        for (int i = 0; i < N && result; i++) {
+            for (int j = 0; j < N && result; j++) {
                 if (isFight(array, i, j)) {
                     result = false;
                 }
@@ -60,10 +60,10 @@ public class Task8 {
 
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);
-        int[][] array = new int[n][n];
+        int[][] array = new int[N][N];
         LOGGER.info("Input a array: ");
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 array[i][j] = cin.nextInt();
             }
         }
