@@ -6,6 +6,10 @@ import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
 public class Task6 {
+
+    final static int THOTHEND = 1000;
+    final static int POST_KAPR = 6174;
+
     private Task6() {
     }
 
@@ -13,8 +17,6 @@ public class Task6 {
 
     public static int countK(int x) {
         int result;
-        final int tis = 1000;
-        final int POST_KAPR = 6174;
         if (x == POST_KAPR) {
             result = 0;
         } else {
@@ -32,7 +34,7 @@ public class Task6 {
         int minx = 0;
         int maxx = 0;
         int mn1 = 1;
-        int mn2 = tis;
+        int mn2 = THOTHEND;
         for (int i = 0; i < n; i++) {
             maxx += mn1 * a[i];
             minx += mn2 * a[i];

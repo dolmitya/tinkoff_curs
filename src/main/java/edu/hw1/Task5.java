@@ -5,39 +5,39 @@ import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
 public class Task5 {
+    final static int STO = 100;
+    final static int DES = 10;
+    final static int MAX_CIF = 9;
+
     private Task5() {
     }
 
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
-    public static int izm(int x) {
-        final int c2 = 100;
-        final int c1 = 10;
+    private static int izm(int x) {
         int copx = x;
         int result = 0;
         int mn = 1;
         while (copx > 0) {
-            result += (copx % c2 / c1 + copx % c1) * mn;
-            copx = copx / c2;
-            mn *= c1;
+            result += (copx % STO / DES + copx % DES) * mn;
+            copx = copx / STO;
+            mn *= DES;
         }
         return result;
     }
 
-    public static boolean isPalindrome(int integer) {
-        final int des = 10;
+    private static boolean isPalindrome(int integer) {
         int palindrome = integer;
         int reverse = 0;
         while (palindrome != 0) {
-            int remainder = palindrome % des;
-            reverse = reverse * des + remainder;
-            palindrome = palindrome / des;
+            int remainder = palindrome % DES;
+            reverse = reverse * DES + remainder;
+            palindrome = palindrome / DES;
         }
         return integer == reverse;
     }
 
     public static boolean isPalindromeDescendant(int x) {
-        final int MAX_CIF = 9;
         int copx = x;
         boolean result = false;
         String strX = Integer.toString(x);

@@ -11,11 +11,19 @@ class Task2Test {
         int actual = Task2.countDigits(3786);
         int expected = 4;
         assertEquals(expected, actual);
-        actual = Task2.countDigits(-54);
-        expected = 2;
+    }
+
+    @Test
+    void countMinusDigits() {
+        int actual = Task2.countDigits(-54);
+        int expected = 2;
         assertEquals(expected, actual);
-        actual = Task2.countDigits(3894769);
-        expected = 7;
+    }
+
+    @Test
+    void MuchCountDigits() {
+        int actual = Task2.countDigits(3894769);
+        int expected = 7;
         assertEquals(expected, actual);
     }
 }
