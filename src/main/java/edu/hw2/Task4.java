@@ -10,10 +10,7 @@ public class Task4 {
 
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
-    public record CallingInfo(String className, String methodName) {
-    }
-
-    public static CallingInfo callingInfo() {
+    protected static CallingInfo callingInfo() {
         try {
             throw new Exception();
         } catch (Throwable e) {
@@ -29,5 +26,8 @@ public class Task4 {
         CallingInfo elem = callingInfo();
         LOGGER.info(elem);
         cin.close();
+    }
+
+    protected record CallingInfo(String className, String methodName) {
     }
 }
