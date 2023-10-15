@@ -20,13 +20,11 @@ public class Task2 {
         }
 
         public Rectangle setWidth(int w) {
-            this.width = w;
-            return this;
+            return new Rectangle(height, w);
         }
 
         public Rectangle setHeight(int h) {
-            this.height = h;
-            return this;
+            return new Rectangle(h, width);
         }
 
         double area() {
