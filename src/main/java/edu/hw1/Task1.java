@@ -4,7 +4,6 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
-
 public class Task1 {
     final static int MAXSECOND = 60;
     final static int MINSECOND = 0;

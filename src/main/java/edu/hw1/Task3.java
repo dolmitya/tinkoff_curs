@@ -4,38 +4,41 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
-
 public class Task3 {
     private Task3() {
     }
 
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
+    public static int searchMin(int[] a) {
+        int result = a[0];
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] < result) {
+                result = a[i];
+            }
+        }
+        return result;
+    }
+
+    public static int searchMax(int[] a) {
+        int result = a[0];
+        for (int i = 1; i < a.length; i++) {
+            if (a[i] > result) {
+                result = a[i];
+            }
+        }
+        return result;
+    }
+
     public static boolean isNestable(int[] a1, int[] a2) {
         boolean result = false;
         int l1 = a1.length;
         int l2 = a2.length;
         if (l1 != 0 & l2 != 0) {
-            int mina1 = a1[0];
-            int maxa1 = a1[0];
-            int mina2 = a2[0];
-            int maxa2 = a2[0];
-            for (int i = 1; i < l1; i++) {
-                if (a1[i] < mina1) {
-                    mina1 = a1[i];
-                }
-                if (a1[i] > maxa1) {
-                    maxa1 = a1[i];
-                }
-            }
-            for (int i = 1; i < l2; i++) {
-                if (a2[i] < mina2) {
-                    mina2 = a2[i];
-                }
-                if (a2[i] > maxa2) {
-                    maxa2 = a2[i];
-                }
-            }
+            int mina1 = searchMin(a1);
+            int maxa1 = searchMax(a1);
+            int mina2 = searchMin(a2);
+            int maxa2 = searchMax(a2);
             if (mina1 > mina2 & maxa1 < maxa2) {
                 result = true;
             }

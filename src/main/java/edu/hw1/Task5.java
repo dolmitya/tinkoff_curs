@@ -5,9 +5,9 @@ import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
 public class Task5 {
-    final static int STO = 100;
-    final static int DES = 10;
-    final static int MAX_CIF = 9;
+    final static int HUNDRED = 100;
+    final static int TEN = 10;
+    final static int MAX_CIFRA = 9;
 
     private Task5() {
     }
@@ -19,9 +19,9 @@ public class Task5 {
         int result = 0;
         int mn = 1;
         while (copx > 0) {
-            result += (copx % STO / DES + copx % DES) * mn;
-            copx = copx / STO;
-            mn *= DES;
+            result += (copx % HUNDRED / TEN + copx % TEN) * mn;
+            copx = copx / HUNDRED;
+            mn *= TEN;
         }
         return result;
     }
@@ -30,9 +30,9 @@ public class Task5 {
         int palindrome = integer;
         int reverse = 0;
         while (palindrome != 0) {
-            int remainder = palindrome % DES;
-            reverse = reverse * DES + remainder;
-            palindrome = palindrome / DES;
+            int remainder = palindrome % TEN;
+            reverse = reverse * TEN + remainder;
+            palindrome = palindrome / TEN;
         }
         return integer == reverse;
     }
@@ -42,7 +42,7 @@ public class Task5 {
         boolean result = false;
         String strX = Integer.toString(x);
         if (strX.length() % 2 == 0) {
-            while (!result && copx > MAX_CIF) {
+            while (!result && copx > MAX_CIFRA) {
                 if (isPalindrome(copx)) {
                     result = true;
                 } else {

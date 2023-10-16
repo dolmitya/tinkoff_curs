@@ -4,7 +4,6 @@ import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
-
 public class Task8 {
 
     final static int ONE = 1;

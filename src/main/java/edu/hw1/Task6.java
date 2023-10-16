@@ -7,8 +7,8 @@ import org.apache.logging.log4j.LogManager;
 @SuppressWarnings("uncommentedmain")
 public class Task6 {
 
-    final static int THOTHEND = 1000;
-    final static int POST_KAPR = 6174;
+    final static int THOUSAND = 1000;
+    final static int POST_KAPRIKARA = 6174;
 
     private Task6() {
     }
@@ -17,7 +17,7 @@ public class Task6 {
 
     public static int countK(int x) {
         int result;
-        if (x == POST_KAPR) {
+        if (x == POST_KAPRIKARA) {
             result = 0;
         } else {
             result = 1;
@@ -34,7 +34,7 @@ public class Task6 {
         int minx = 0;
         int maxx = 0;
         int mn1 = 1;
-        int mn2 = THOTHEND;
+        int mn2 = THOUSAND;
         for (int i = 0; i < n; i++) {
             maxx += mn1 * a[i];
             minx += mn2 * a[i];
@@ -42,7 +42,7 @@ public class Task6 {
             mn2 /= des;
         }
         Integer raz = maxx - minx;
-        if (!raz.equals(POST_KAPR)) {
+        if (!raz.equals(POST_KAPRIKARA)) {
             result += countK(raz);
         }
         return result;
