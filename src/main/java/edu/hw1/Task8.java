@@ -5,7 +5,6 @@ import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
 public class Task8 {
-
     final static int ONE = 1;
     final static int TWO = 2;
     final static int N = 8;
