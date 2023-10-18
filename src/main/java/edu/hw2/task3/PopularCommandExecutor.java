@@ -5,7 +5,6 @@ import java.util.Random;
 public class PopularCommandExecutor {
 
     private PopularCommandExecutor() {
-
     }
 
     final static String ERROR = "Error";
@@ -15,8 +14,8 @@ public class PopularCommandExecutor {
     PopularCommandExecutor(int maxAttempts) {
         final int intBOUND = 2;
         Random random = new Random();
-        manager = (random.nextInt(intBOUND) == 1) ? new ConnectManage.DefaultConnectionManager() :
-            new ConnectManage.FaultyConnectionManager();
+        manager = (random.nextInt(intBOUND) == 1) ? new ConnectManage.DefaultConnectionManager()
+            : new ConnectManage.FaultyConnectionManager();
         this.maxAttempts = maxAttempts;
     }
 
