@@ -1,7 +1,6 @@
 package edu.hw2.task1;
 
 import java.util.Scanner;
-import edu.hw2.task1.Expr;
 import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")

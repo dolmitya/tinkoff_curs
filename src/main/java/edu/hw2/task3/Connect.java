@@ -1,9 +1,10 @@
 package edu.hw2.task3;
 
+import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.Random;
 
+@SuppressWarnings("uncommentedmain")
 public class Connect {
     final static String COMPLETE = " выполнена успешно!";
     final static String CONNECTION = "Соединение для ";

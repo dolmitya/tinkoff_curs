@@ -1,7 +1,6 @@
 package edu.hw2.task3;
 
 @SuppressWarnings("uncommentedmain")
-
 public class Task3 {
 
     private Task3() {
