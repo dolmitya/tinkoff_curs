@@ -9,7 +9,7 @@ public sealed interface Expr permits Expr.Addition, Expr.Constant, Expr.Negate, 
         }
     }
 
-    public record Addition(Expr first, Expr second) implements Expr {
+    public record Addition (Expr first, Expr second) implements Expr {
         public double evaluate() {
             return first.evaluate() + second.evaluate();
         }
