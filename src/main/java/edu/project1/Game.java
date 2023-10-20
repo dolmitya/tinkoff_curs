@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 
-@SuppressWarnings("uncommentedmain")
+@SuppressWarnings("RegexpSinglelineJava")
 public class Game {
     final static int WRONG_COUNT_MISTAKES = -1;
     final static int MAX_COUNT_MISTAKES = 5;
@@ -28,7 +28,7 @@ public class Game {
                     letter = " ";
                     return;
                 }
-                LOGGER.info("\nInput correct letter:");
+                System.out.print("\n>Input correct letter:<");
             }
         } while (flag);
     }
@@ -47,44 +47,45 @@ public class Game {
                 maskOperator.clearBuffer();
                 String guessedWord = wordSelector.getRandomWord();
                 maskOperator.setWord(guessedWord);
-                LOGGER.info("\nA word has been guessed!\nIf you want to give up, enter - give up\n");
-
+                System.out.print("\n>A word has been guessed!\n>If you want to give up, enter - give up\n");
+                maskOperator.printMask();
                 while (!win(maskOperator.getNumberGuessletter(), maskOperator.getWordUniqueLetters())) {
-                    LOGGER.info("\nGuess a letter: ");
+                    System.out.print("\n>Guess a letter: \n<");
                     input();
                     if (mistakesCount == WRONG_COUNT_MISTAKES) {
-                        LOGGER.info("\nYou give up!");
+                        System.out.print("\n>You give up!");
                         flag = true;
                         break;
                     }
                     if (maskOperator.isLetterbeused(letter)) {
-                        LOGGER.info("\nThis letter is already by used!");
+                        System.out.print("\n>This letter is already by used!");
                     } else {
                         maskOperator.inputLetterInSet(letter);
                         if (maskOperator.checkLetterinSet(letter)) {
-                            LOGGER.info("\nHit!");
+                            System.out.print(">Hit!");
                             maskOperator.updateMask(letter);
                             maskOperator.printMask();
                         } else {
                             mistakesCount++;
-                            LOGGER.info("\nMissed, mistake " + mistakesCount + " out of " + MAX_COUNT_MISTAKES + ".\n");
+                            System.out.print(">Missed, mistake " + mistakesCount + " out of "
+                                + MAX_COUNT_MISTAKES + ".\n");
                             maskOperator.printMask();
 
                         }
                     }
                     if (mistakesCount == MAX_COUNT_MISTAKES) {
-                        LOGGER.info("\nYou lost!");
+                        System.out.print("\n>You lost!");
                         flag = true;
                         break;
                     }
                 }
                 if (!flag) {
-                    LOGGER.info("\nYou won!");
+                    System.out.print("\n>You won!");
                 }
             } else {
                 System.exit(0);
             }
-            LOGGER.info("\nMenu: [N]ew game/ [E]xit");
+            System.out.print("\n>Menu: [N]ew game/ [E]xit");
             vubor = scanner.nextLine();
         }
     }

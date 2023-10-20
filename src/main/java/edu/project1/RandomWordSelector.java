@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 
-@SuppressWarnings("uncommentedmain")
+@SuppressWarnings("RegexpSinglelineJava")
 public class RandomWordSelector {
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private String[] words = new String[0];
@@ -22,7 +22,7 @@ public class RandomWordSelector {
             "src\\main\\java\\edu\\project1\\words.txt"))) {
             br.lines().forEach(strbuild::append);
         } catch (FileNotFoundException e) {
-            LOGGER.info("\nFile not found!");
+            System.out.print("\nFile not found!");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
