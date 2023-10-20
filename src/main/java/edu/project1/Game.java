@@ -12,7 +12,7 @@ public class Game {
     private final RandomWordSelector wordSelector = new RandomWordSelector();
     private final WordMask maskOperator = new WordMask();
     int mistakesCount;
-    private String letter = "";
+    private String letter;
 
     private void input() {
         Scanner scanner = new Scanner(System.in);
