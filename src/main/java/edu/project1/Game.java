@@ -47,8 +47,8 @@ public class Game {
                 maskOperator.clearBuffer();
                 String guessedWord = wordSelector.getRandomWord();
                 maskOperator.setWord(guessedWord);
-                System.out.print("\n>A word has been guessed!\n>If you want to give up, enter - give up\n");
-                maskOperator.printMask();
+                System.out.print(">A word has been guessed!\n>If you want to give up, enter - give up\n");
+
                 while (!win(maskOperator.getNumberGuessletter(), maskOperator.getWordUniqueLetters())) {
                     System.out.print("\n>Guess a letter: \n<");
                     input();
@@ -85,7 +85,7 @@ public class Game {
             } else {
                 System.exit(0);
             }
-            System.out.print("\n>Menu: [N]ew game/ [E]xit");
+            System.out.print("\n>Menu: [N]ew game/ [E]xit\n<");
             vubor = scanner.nextLine();
         }
     }
