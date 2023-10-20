@@ -23,7 +23,7 @@ public class RandomWordSelector {
                 + "project-template\\src\\main\\java\\edu\\project1\\words.txt"))) {
             br.lines().forEach(strbuild::append);
         } catch (FileNotFoundException e) {
-            LOGGER.info("File not found!");
+            LOGGER.info("\nFile not found!");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
