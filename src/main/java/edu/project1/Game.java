@@ -6,8 +6,8 @@ import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
 public class Game {
-    final static int WRONG_COUNT_MISTAKES = 6;
-    final static int MAX_COUNT_MISTAKES = 6;
+    final static int WRONG_COUNT_MISTAKES = -1;
+    final static int MAX_COUNT_MISTAKES = 5;
     private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private final RandomWordSelector wordSelector = new RandomWordSelector();
     private final WordMask maskOperator = new WordMask();

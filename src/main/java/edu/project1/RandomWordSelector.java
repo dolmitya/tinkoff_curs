@@ -19,8 +19,7 @@ public class RandomWordSelector {
     private void scanWordsFromFile() {
         StringBuilder strbuild = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(
-            "C:\\Users\\Дмитрий\\IdeaProjects\\java-course-2023-main\\"
-                + "project-template\\src\\main\\java\\edu\\project1\\words.txt"))) {
+            "src\\main\\java\\edu\\project1\\words.txt"))) {
             br.lines().forEach(strbuild::append);
         } catch (FileNotFoundException e) {
             LOGGER.info("\nFile not found!");
