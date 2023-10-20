@@ -5,21 +5,25 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
+import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
 public class RandomWordSelector {
+    private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private String[] words = new String[0];
 
     public RandomWordSelector() {
-        ScanWordsFromFile();
+        scanWordsFromFile();
     }
 
-    private void ScanWordsFromFile() {
+    private void scanWordsFromFile() {
         StringBuilder strbuild = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Дмитрий\\IdeaProjects\\java-course-2023-main\\project-template\\src\\main\\java\\edu\\project1\\words.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(
+            "C:\\Users\\Дмитрий\\IdeaProjects\\java-course-2023-main\\"
+                + "project-template\\src\\main\\java\\edu\\project1\\words.txt"))) {
             br.lines().forEach(strbuild::append);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found!");
+            LOGGER.info("File not found!");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

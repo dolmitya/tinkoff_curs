@@ -2,11 +2,16 @@ package edu.project1;
 
 import java.util.Scanner;
 import java.util.Set;
+import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
 public class Game {
+    final static int WRONG_COUNT_MISTAKES = 6;
+    final static int MAX_COUNT_MISTAKES = 6;
+    private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private final RandomWordSelector wordSelector = new RandomWordSelector();
     private final WordMask maskOperator = new WordMask();
+    int mistakesCount;
     private String letter = "";
 
     private void input() {
@@ -18,13 +23,17 @@ public class Game {
             if (letter.length() == 1 && Character.isLetter(letter.charAt(0))) {
                 flag = false;
             } else {
-                System.out.println("Input correct letter:");
-                letter = scanner.nextLine();
+                if (letter.equals("give up")) {
+                    mistakesCount = WRONG_COUNT_MISTAKES;
+                    letter = " ";
+                    return;
+                }
+                LOGGER.info("Input correct letter:");
             }
         } while (flag);
     }
 
-    private boolean Win(int numberGuessletter, Set<String> wordUniqueLetters) {
+    private boolean win(int numberGuessletter, Set<String> wordUniqueLetters) {
         return numberGuessletter == wordUniqueLetters.size();
     }
 
@@ -32,51 +41,50 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
         String vubor = "N";
         Boolean flag = false;
-        int mistakesCount = 0;
         while (true) {
             if (vubor.equalsIgnoreCase("N")) {
                 mistakesCount = 0;
                 maskOperator.clearBuffer();
                 String guessedWord = wordSelector.getRandomWord();
                 maskOperator.setWord(guessedWord);
-                System.out.println("A word has been guessed!");
-                maskOperator.printMask();
+                LOGGER.info("A word has been guessed!\nIf you want to give up, enter - give up\n");
 
-                while (!Win(maskOperator.getNumberGuessletter(), maskOperator.getWordUniqueLetters())) {
-                    System.out.println("Guess the letter: ");
+                while (!win(maskOperator.getNumberGuessletter(), maskOperator.getWordUniqueLetters())) {
+                    LOGGER.info("Guess a letter: ");
                     input();
-                    //letter = scanner.nextLine();
+                    if (mistakesCount == WRONG_COUNT_MISTAKES) {
+                        LOGGER.info("You give up!");
+                        flag = true;
+                        break;
+                    }
                     if (maskOperator.isLetterbeused(letter)) {
-                        System.out.println("This letter is already by used!");
+                        LOGGER.info("This letter is already by used!");
                     } else {
                         maskOperator.inputLetterInSet(letter);
                         if (maskOperator.checkLetterinSet(letter)) {
-                            System.out.println("You gueses the letter!");
-                            System.out.println("Word:");
+                            LOGGER.info("Hit!");
                             maskOperator.updateMask(letter);
                             maskOperator.printMask();
                         } else {
-                            System.out.println("You didn't goess");
                             mistakesCount++;
-                            System.out.printf("Your mistakes %s/5\n", mistakesCount);
+                            LOGGER.info("Missed, mistake %s out of 5.\n", mistakesCount);
                             maskOperator.printMask();
 
                         }
                     }
-                    if (mistakesCount == 5) {
-                        System.out.println("You lose!");
-                        System.out.printf("Word %s\n", guessedWord);
+                    if (mistakesCount == MAX_COUNT_MISTAKES) {
+                        LOGGER.info("You lost!");
                         flag = true;
                         break;
                     }
                 }
                 if (!flag) {
-                    System.out.println("congratulations!!!!");
+                    LOGGER.info("congratulations!!!!");
                 }
             } else {
                 System.exit(0);
             }
-            System.out.println("Menu: [N]ew game/ [E]xit");
+            LOGGER.info("Menu: [N]ew game/ [E]xit");
             vubor = scanner.nextLine();
         }
     }

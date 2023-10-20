@@ -4,10 +4,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
+import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
 public class WordMask {
     private String word;
+    private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private String[] mask;
     private int numberGuessletter = 0;
     private final Set<String> usedLetters = new HashSet<>();
@@ -29,7 +31,7 @@ public class WordMask {
     }
 
     public void printMask() {
-        System.out.println(String.join("", mask));
+        LOGGER.info("\nThe word: " + String.join("", mask) + "\n");
     }
 
     public void updateMask(String letter) {
