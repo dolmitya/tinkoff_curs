@@ -67,7 +67,7 @@ public class Game {
                             maskOperator.printMask();
                         } else {
                             mistakesCount++;
-                            LOGGER.info("\nMissed, mistake " + mistakesCount + " out of 5.\n");
+                            LOGGER.info("\nMissed, mistake " + mistakesCount + " out of " + MAX_COUNT_MISTAKES + ".\n");
                             maskOperator.printMask();
 
                         }
