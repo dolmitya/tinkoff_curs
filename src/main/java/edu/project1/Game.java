@@ -33,6 +33,19 @@ public class Game {
         } while (flag);
     }
 
+    private String input_vubor() {
+        Scanner scanner = new Scanner(System.in);
+        String result;
+        do {
+            result = scanner.nextLine();
+            if (result.length() == 1 && (result.equals("N") || result.equals("E"))) {
+                return result;
+            } else {
+                System.out.print(">Input correct vubor:\n<");
+            }
+        } while (true);
+    }
+
     private boolean win(int numberGuessletter, Set<String> wordUniqueLetters) {
         return numberGuessletter == wordUniqueLetters.size();
     }
@@ -40,10 +53,11 @@ public class Game {
     public void start() {
         Scanner scanner = new Scanner(System.in);
         String vubor = "N";
-        Boolean flag = false;
+        boolean flag;
         while (true) {
             if (vubor.equalsIgnoreCase("N")) {
                 mistakesCount = 0;
+                flag = false;
                 maskOperator.clearBuffer();
                 String guessedWord = wordSelector.getRandomWord();
                 maskOperator.setWord(guessedWord);
@@ -62,7 +76,7 @@ public class Game {
                     } else {
                         maskOperator.inputLetterInSet(letter);
                         if (maskOperator.checkLetterinSet(letter)) {
-                            System.out.print(">Hit!");
+                            System.out.print(">Hit!\n");
                             maskOperator.updateMask(letter);
                             maskOperator.printMask();
                         } else {
@@ -86,7 +100,7 @@ public class Game {
                 System.exit(0);
             }
             System.out.print("\n>Menu: [N]ew game/ [E]xit\n<");
-            vubor = scanner.nextLine();
+            vubor = input_vubor();
         }
     }
 }
