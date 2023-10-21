@@ -33,7 +33,7 @@ public class Game {
         } while (flag);
     }
 
-    private String input_vubor() {
+    private String inputVubor() {
         Scanner scanner = new Scanner(System.in);
         String result;
         do {
@@ -72,7 +72,7 @@ public class Game {
                         break;
                     }
                     if (maskOperator.isLetterbeused(letter)) {
-                        System.out.print("\n>This letter is already by used!");
+                        System.out.print(">\n>This letter is already by used!");
                     } else {
                         maskOperator.inputLetterInSet(letter);
                         if (maskOperator.checkLetterinSet(letter)) {
@@ -100,7 +100,7 @@ public class Game {
                 System.exit(0);
             }
             System.out.print("\n>Menu: [N]ew game/ [E]xit\n<");
-            vubor = input_vubor();
+            vubor = inputVubor();
         }
     }
 }

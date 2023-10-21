@@ -31,7 +31,7 @@ public class WordMask {
     }
 
     public void printMask() {
-        System.out.print("\n>The word: " + String.join("", mask) + "\n");
+        System.out.print(">\n>The word: " + String.join("", mask) + "\n>");
     }
 
     public void updateMask(String letter) {
