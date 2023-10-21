@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class PopularCommandExecutor {
 
-    private PopularCommandExecutor() {
+    public PopularCommandExecutor() {
     }
 
     final static String ERROR = "Error";
