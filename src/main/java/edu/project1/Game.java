@@ -1,22 +1,38 @@
 package edu.project1;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.Set;
-import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("RegexpSinglelineJava")
 public class Game {
+    public Game() {
+        scanner = new Scanner(System.in);
+    }
+
+    public Game(String in) {
+        scanner = new Scanner(in);
+        outputStream = new ByteArrayOutputStream();
+        stream = new PrintStream(outputStream);
+        System.setOut(stream);
+    }
+
+    public String getOut() {
+        return outputStream.toString();
+    }
+
     final static int WRONG_COUNT_MISTAKES = -1;
     final static int MAX_COUNT_MISTAKES = 5;
-    private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private final RandomWordSelector wordSelector = new RandomWordSelector();
     private final WordMask maskOperator = new WordMask();
     int mistakesCount;
+    private Scanner scanner;
+    private ByteArrayOutputStream outputStream;
+    private PrintStream stream;
     private String letter;
 
     private void input() {
-        Scanner scanner = new Scanner(System.in);
-
         boolean flag = true;
         do {
             letter = scanner.nextLine();
@@ -34,7 +50,6 @@ public class Game {
     }
 
     private String inputVubor() {
-        Scanner scanner = new Scanner(System.in);
         String result;
         do {
             result = scanner.nextLine();
@@ -58,7 +73,6 @@ public class Game {
             maskOperator.clearBuffer();
             maskOperator.setWord(guessedWord);
             System.out.print(">A word has been guessed!\n>If you want to give up, enter - give up\n");
-
             while (!win(maskOperator.getNumberGuessletter(), maskOperator.getWordUniqueLetters())) {
                 System.out.print("\n>Guess a letter: \n<");
                 input();

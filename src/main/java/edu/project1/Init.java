@@ -5,10 +5,10 @@ public class Init {
     private Init() {
     }
 
-    private static final RandomWordSelector wordSelector = new RandomWordSelector();
+    private static final RandomWordSelector WORDSELECTOR = new RandomWordSelector();
 
     public static void main(String[] args) {
         Game initialization = new Game();
-        initialization.start(wordSelector.getRandomWord());
+        initialization.start(WORDSELECTOR.getRandomWord());
     }
 }
