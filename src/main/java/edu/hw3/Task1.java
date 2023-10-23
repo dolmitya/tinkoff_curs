@@ -29,7 +29,9 @@ public class Task1 {
         encoder();
         String str = s;
         for (int i = 0; i < s.length(); i++) {
-            str = str.substring(0, i) + hashMap.get(str.charAt(i)) + str.substring(i + 1);
+            if (Character.isLetter(s.charAt(i))) {
+                str = str.substring(0, i) + hashMap.get(str.charAt(i)) + str.substring(i + 1);
+            }
         }
         return str;
     }
