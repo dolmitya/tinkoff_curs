@@ -29,7 +29,7 @@ public class Task1 {
         encoder();
         String str = s;
         for (int i = 0; i < s.length(); i++) {
-            if (Character.isLetter(s.charAt(i))) {
+            if ((s.charAt(i) >= 'a' && s.charAt(i) <= 'z') || (s.charAt(i) >= 'A' && s.charAt(i) <= 'Z')) {
                 str = str.substring(0, i) + hashMap.get(str.charAt(i)) + str.substring(i + 1);
             }
         }
