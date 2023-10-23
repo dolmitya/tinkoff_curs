@@ -10,8 +10,8 @@ public class Task4 {
     final static int TEN = 10;
     final static int FIFTY = 50;
     final static int HUNDRED = 100;
-    final static int FIVEHUNDRED = 100;
-    final static int THOUSAND = 100;
+    final static int FIVEHUNDRED = 500;
+    final static int THOUSAND = 1000;
     private static HashMap<Integer, String> map;
 
     private static void encoder() {
