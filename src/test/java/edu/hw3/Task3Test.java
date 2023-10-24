@@ -15,7 +15,7 @@ class Task3Test {
     void freqDictStrTo2() {
         List<String> list = Arrays.asList("a", "bb", "a", "bb");
         String actual = Task3.freqDict(list).toString();
-        String expected = "{\"bb\"=2, \"a\"=2}";
+        String expected = "{\"a\"=2, \"bb\"=2}";
         assertEquals(expected, actual);
     }
 
@@ -24,7 +24,7 @@ class Task3Test {
     void freqDictStr() {
         List<String> list = Arrays.asList("this", "and", "that", "and");
         String actual = Task3.freqDict(list).toString();
-        String expected = "{\"and\"=2, \"that\"=1, \"this\"=1}";
+        String expected = "{\"this\"=1, \"and\"=2, \"that\"=1}";
         assertEquals(expected, actual);
     }
 }

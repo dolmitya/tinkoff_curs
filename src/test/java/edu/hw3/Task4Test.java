@@ -22,4 +22,12 @@ class Task4Test {
         String expected = "N";
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("4")
+    void convertToRoman4() {
+        String actual = Task4.convertToRoman(4);
+        String expected = "IV";
+        assertEquals(expected, actual);
+    }
 }
