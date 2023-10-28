@@ -13,18 +13,27 @@ class Task3Test {
     @Test
     @DisplayName("Слова по 2 раза")
     void freqDictStrTo2() {
-        List<String> list = Arrays.asList("a", "bb", "a", "bb");
+        List<?> list = Arrays.asList("a", "bb", "a", "bb");
         String actual = Task3.freqDict(list).toString();
-        String expected = "{\"a\"=2, \"bb\"=2}";
+        String expected = "{a=2, bb=2}";
         assertEquals(expected, actual);
     }
 
     @Test
     @DisplayName("Слова по несколько раз")
     void freqDictStr() {
-        List<String> list = Arrays.asList("this", "and", "that", "and");
+        List<?> list = Arrays.asList("this", "and", "that", "and");
         String actual = Task3.freqDict(list).toString();
-        String expected = "{\"this\"=1, \"and\"=2, \"that\"=1}";
+        String expected = "{this=1, and=2, that=1}";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Числа")
+    void freqDictInt() {
+        List<?> list = Arrays.asList(1, 1, 2, 2);
+        String actual = Task3.freqDict(list).toString();
+        String expected = "{1=2, 2=2}";
         assertEquals(expected, actual);
     }
 }

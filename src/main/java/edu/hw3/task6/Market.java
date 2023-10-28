@@ -2,18 +2,7 @@ package edu.hw3.task6;
 
 import java.util.PriorityQueue;
 
-interface StockMarket {
-    /** Добавить акцию */
-    void add(Stock stock);
-
-    /** Удалить акцию */
-    void remove(Stock stock);
-
-    /** Самая дорогая акция */
-    Stock mostValuableStock();
-}
-
-public class Market implements StockMarket{
+public class Market implements StockMarket {
     private final PriorityQueue<Stock> priorityQueue = new PriorityQueue<>();
 
     public PriorityQueue<Stock> getPriorityQueue() {
@@ -28,6 +17,10 @@ public class Market implements StockMarket{
         if (!priorityQueue.isEmpty()) {
             priorityQueue.remove(stock);
         }
+    }
+
+    public Stock remove() {
+        return priorityQueue.remove();
     }
 
     @Override

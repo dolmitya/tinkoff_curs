@@ -1,5 +1,7 @@
-package edu.hw3.task6;
+package edu.hw3;
 
+import edu.hw3.task6.Market;
+import edu.hw3.task6.Stock;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

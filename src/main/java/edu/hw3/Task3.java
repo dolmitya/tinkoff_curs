@@ -7,11 +7,11 @@ public class Task3 {
     private Task3() {
     }
 
-    public static LinkedHashMap<String, Integer> freqDict(List<String> list) {
+    public static LinkedHashMap<String, Integer> freqDict(List<?> list) {
         LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
         String s;
         for (int i = 0; i < list.size(); i++) {
-            s = "\"" + list.get(i) + "\"";
+            s = list.get(i).toString();
             if (map.containsKey(s)) {
                 map.replace(s, map.get(s), map.get(s) + 1);
             } else {
