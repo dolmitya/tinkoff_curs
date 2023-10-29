@@ -20,11 +20,12 @@ public class BackwardIterator<T> implements Iterator<T> {
 
     @Override
     public T next() {
-        if (!hasNext())
+        if (!hasNext()) {
             return null;
-        T[] elements = new T[index];
+        }
+        T[] elements = (T[]) new Object[index];
         collection.toArray(elements);
-        index -= 1;
+        index--;
         return elements[index];
     }
 }

@@ -1,9 +1,7 @@
 package edu.hw3.task8;
 
-import edu.hw3.Task3;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import java.util.Arrays;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,7 +12,16 @@ class Task8Test {
     void test123() {
         BackwardIterator<Integer> it = new BackwardIterator<>(List.of(1, 2, 3));
         Integer actual = it.next();
-        Integer expected = 1;
+        Integer expected = 3;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("Тест187532")
+    void test187532() {
+        BackwardIterator<Integer> it = new BackwardIterator<>(List.of(1, 8, 7, 5, 3, 2));
+        Integer actual = it.next();
+        Integer expected = 2;
         assertEquals(expected, actual);
     }
 }
