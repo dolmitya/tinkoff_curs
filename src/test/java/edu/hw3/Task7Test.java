@@ -10,7 +10,7 @@ class Task7Test {
 
     @Test
     @DisplayName("Тестирование компоратора")
-    void task7Test1() {
+    void comporator() {
         TreeMap<String, String> tree = new TreeMap<>(new MyComparator());
         tree.put(null, "test");
         assertThat(tree.containsKey(null)).isTrue();
