@@ -10,7 +10,7 @@ class Task8Test {
     @Test
     @DisplayName("Тест123")
     void test123() {
-        BackwardIterator<Integer> it = new BackwardIterator<>(List.of(1, 2, 3));
+        BackwardIterator<Integer> it = new BackwardIterator<>(Integer.class, List.of(1, 2, 3));
         Integer actual = it.next();
         Integer expected = 3;
         assertEquals(expected, actual);
@@ -19,9 +19,10 @@ class Task8Test {
     @Test
     @DisplayName("Тест187532")
     void test187532() {
-        BackwardIterator<Integer> it = new BackwardIterator<>(List.of(1, 8, 7, 5, 3, 2));
+        BackwardIterator<Integer> it = new BackwardIterator<>(Integer.class, List.of(1, 8, 7, 5, 3, 2));
         Integer actual = it.next();
-        Integer expected = 2;
+        actual = it.next();
+        Integer expected = 3;
         assertEquals(expected, actual);
     }
 }

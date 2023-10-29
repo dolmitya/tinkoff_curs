@@ -1,5 +1,6 @@
 package edu.hw3.task8;
 
+import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -7,10 +8,13 @@ public class BackwardIterator<T> implements Iterator<T> {
 
     private Integer index;
     private final Collection<T> collection;
+    private T[] mas;
 
-    public BackwardIterator(Collection<T> coll) {
+    public BackwardIterator(Class<T> c, Collection<T> coll) {
         this.index = coll.size();
         this.collection = coll;
+        final T[] a = (T[]) Array.newInstance(c, index);
+        this.mas = a;
     }
 
     @Override
@@ -23,9 +27,8 @@ public class BackwardIterator<T> implements Iterator<T> {
         if (!hasNext()) {
             return null;
         }
-        T[] elements = (T[]) new Object[index];
-        collection.toArray(elements);
+        collection.toArray(mas);
         index--;
-        return elements[index];
+        return mas[index];
     }
 }
