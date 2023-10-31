@@ -3,7 +3,9 @@ package edu.hw4;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TaskTest {
@@ -86,10 +88,11 @@ class TaskTest {
         Animal anim3 = new Animal("Pushoki", Animal.Type.DOG, Animal.Sex.M, 10, 40, 50, true);
         Animal anim4 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 10, 40, 50, true);
         List<Animal> list = Arrays.asList(anim1, anim2, anim3, anim4);
-        String actual = task.task6(list).toString();
-        String expected = "{FISH=Optional[Animal[name=Pushoki, type=FISH, sex=F, age=10, height=40, weight=50, bites=true]], " +
-            "CAT=Optional[Animal[name=Barsik, type=CAT, sex=M, age=10, height=35, weight=50, bites=true]], " +
-            "DOG=Optional[Animal[name=Pushoki, type=DOG, sex=M, age=10, height=40, weight=50, bites=true]]}";
+        Map<Animal.Type, Animal> actual = task.task6(list);
+        Map<Animal.Type, Animal> expected = new HashMap<>();
+        expected.put(Animal.Type.FISH, anim4);
+        expected.put(Animal.Type.CAT, anim1);
+        expected.put(Animal.Type.DOG, anim3);
         assertEquals(expected, actual);
     }
 
@@ -281,8 +284,8 @@ class TaskTest {
         Animal anim3 = new Animal("Pushok", Animal.Type.DOG, Animal.Sex.M, 4, 460, 50, false);
         Animal anim4 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
         List<Animal> list = Arrays.asList(anim1, anim2, anim3, anim4);
-        String actual = task.task19(list).toString();
-        String expected = "{Sasha=[edu.hw4.ValidationError@5e316c74]}";
+        String actual = task.task19(list).toString().substring(0, 31) + task.task19(list).toString().substring(40);
+        String expected = "{Sasha=[edu.hw4.ValidationError]}";
         assertEquals(expected, actual);
     }
 

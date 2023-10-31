@@ -69,12 +69,26 @@ public class Task {
     }
 
     //Самое тяжелое животное каждого вида -> Map<Animal.Type, Animal>
-    public Map<Animal.Type, Optional<Animal>> task6(List<Animal> animals) {
-        return animals.stream().collect(
-            Collectors.groupingBy(
-                Animal::type,
-                Collectors.maxBy(Comparator.comparing(Animal::weight))
-            ));
+    public Map<Animal.Type, Animal> task6(List<Animal> animals) {
+        Map<Animal.Type, List<Animal>> map = animals.stream()
+            .collect(Collectors.groupingBy(Animal::type));
+        Map<Animal.Type, Animal> newMap = new HashMap<>();
+        for (var it : map.entrySet()) {
+            Animal animal = map.get(it.getKey())
+                .stream()
+                .sorted((o1, o2) -> {
+                    if (o1.weight() < o2.weight()) {
+                        return 1;
+                    } else if (o1.weight() > o2.weight()) {
+                        return -1;
+                    }
+                    return 0;
+                })
+                .toList()
+                .get(0);
+            newMap.put(it.getKey(), animal);
+        }
+        return newMap;
     }
 
     //K-е самое старое животное -> Animal
