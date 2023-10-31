@@ -1,9 +1,11 @@
 package edu.hw4;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Task {
@@ -11,7 +13,7 @@ public class Task {
     }
 
     //Отсортировать животных по росту от самого маленького к
-    //самому большому -> List<Animal>
+    // самому большому -> List<Animal>
     public List<Animal> task1(List<Animal> animals) {
         List<Animal> result = animals.stream()
             .sorted((o1, o2) -> {
@@ -26,7 +28,7 @@ public class Task {
     }
 
     //Отсортировать животных по весу от самого тяжелого к самому
-    //легкому, выбрать k первых -> List<Animal>
+    // легкому, выбрать k первых -> List<Animal>
     public List<Animal> task2(List<Animal> animals) {
         List<Animal> result = animals.stream()
             .sorted((o1, o2) -> {
@@ -90,7 +92,7 @@ public class Task {
     }
 
     //Самое тяжелое животное среди животных ниже k см ->
-    //Optional<Animal>
+    // Optional<Animal>
     public Animal task8(List<Animal> animals, int k) {
         return animals.stream().filter(animal -> animal.height() < k)
             .max(Comparator.comparing(Animal::weight)).get();
@@ -102,25 +104,26 @@ public class Task {
     }
 
     //Список животных, возраст у которых не совпадает с количеством
-    //лап -> List<Animal>
+    // лап -> List<Animal>
     public List<Animal> task10(List<Animal> animals) {
         return animals.stream().filter(animal -> animal.age() != animal.paws()).toList();
     }
 
     //Список животных, которые могут укусить (bites == null или true) и
-    //рост которых превышает 100 см -> List<Animal>
+    // рост которых превышает 100 см -> List<Animal>
     public List<Animal> task11(List<Animal> animals) {
-        return animals.stream().filter(animal -> animal.bites() && animal.height() > 100).toList();
+        final int MAX_HEIGHT = 100;
+        return animals.stream().filter(animal -> animal.bites() && animal.height() > MAX_HEIGHT).toList();
     }
 
     //Сколько в списке животных, вес которых превышает рост ->
-    //Integer
+    // Integer
     public Integer task12(List<Animal> animals) {
         return animals.stream().filter(animal -> animal.weight() > animal.height()).toList().size();
     }
 
     //Список животных, имена которых состоят из более чем двух слов
-    //-> List<Animal>
+    // -> List<Animal>
     public List<Animal> task13(List<Animal> animals) {
         return animals.stream().filter(animal -> animal.name().indexOf(' ') > -1).toList();
     }
@@ -132,35 +135,35 @@ public class Task {
     }
 
     //Найти суммарный вес животных каждого вида, которым от k до l
-    //лет -> Integer
+    // лет -> Integer
     public Integer task15(List<Animal> animals, int k, int l) {
         return animals.stream().filter(animal -> animal.age() > k && animal.age() < l)
             .collect(Collectors.summingInt(Animal::weight));
     }
 
     //Список животных, отсортированный по виду,
-    //затем по полу, затем по имени -> List<Animal>
+    // затем по полу, затем по имени -> List<Animal>
     public List<Animal> task16(List<Animal> animals) {
         return animals.stream()
-            .sorted(Comparator.comparing(Animal::type))
-            .sorted(Comparator.comparing(Animal::sex))
-            .sorted(Comparator.comparing(Animal::name))
-            .collect(Collectors.toList());
+            .sorted(Comparator.comparing(Animal::type)
+                .thenComparing(Animal::sex)
+                .thenComparing(Animal::name))
+            .toList();
     }
 
     //Правда ли, что пауки кусаются чаще, чем собаки -> Boolean (если
     // данных для ответа недостаточно, вернуть false)
     public boolean task17(List<Animal> animals) {
-        int Sbites = animals.stream()
+        int sbites = animals.stream()
             .filter(animal -> animal.type() == Animal.Type.SPIDER && animal.bites())
             .toList().size();
-        int Dbites = animals.stream()
+        int dbites = animals.stream()
             .filter(animal -> animal.type() == Animal.Type.DOG && animal.bites())
             .toList().size();
-        if (Sbites == 0 || Dbites == 0) {
+        if (sbites == 0 || dbites == 0) {
             return false;
         }
-        return Sbites > Dbites;
+        return sbites > dbites;
     }
 
     //Найти самую тяжелую рыбку в 2-х или более списках -> Animal
@@ -168,8 +171,8 @@ public class Task {
         if (animals.isEmpty()) {
             return null;
         }
-        Animal maxFish = null, maxFish0;
-        maxFish0 = animals.get(0).stream()
+        Animal maxFish = null;
+        Animal maxFish0 = animals.get(0).stream()
             .filter(animal -> animal.type() == Animal.Type.FISH)
             .max(Comparator.comparing(Animal::weight)).get();
         for (int i = 1; i < animals.size(); i++) {
@@ -188,5 +191,35 @@ public class Task {
             }
         }
         return maxFish;
+    }
+
+    //Животные, в записях о которых есть ошибки: вернуть имя и
+    // список ошибок -> Map<String, Set<ValidationError>>.
+    //
+    //Класс ValidationError и набор потенциальных проверок нужно
+    // придумать самостоятельно.
+    public Map<String, Set<ValidationError>> task19(List<Animal> animals) {
+        Map<String, Set<ValidationError>> mapOfErrorForEachAnimal = new HashMap<>();
+        animals.stream()
+            .forEach((animal) -> {
+                if (!(new ValidationError().check(animal).isEmpty())) {
+                    mapOfErrorForEachAnimal.put(animal.name(), new ValidationError().check(animal));
+                }
+            });
+        return mapOfErrorForEachAnimal;
+    }
+
+    //Сделать результат предыдущего задания более читабельным:
+    // вернуть имя и названия полей с ошибками, объединенные в
+    // строку -> Map<String, String>
+    public Map<String, String> task20(List<Animal> animals) {
+        Map<String, String> mapOfErrorForEachAnimal = new HashMap<>();
+        animals.stream()
+            .forEach((animal) -> {
+                if (!(new ValidationError().checkUpdate(animal).isEmpty())) {
+                    mapOfErrorForEachAnimal.put(animal.name(), new ValidationError().checkUpdate(animal));
+                }
+            });
+        return mapOfErrorForEachAnimal;
     }
 }

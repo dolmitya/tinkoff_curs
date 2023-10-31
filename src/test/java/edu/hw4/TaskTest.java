@@ -87,10 +87,9 @@ class TaskTest {
         Animal anim4 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 10, 40, 50, true);
         List<Animal> list = Arrays.asList(anim1, anim2, anim3, anim4);
         String actual = task.task6(list).toString();
-        String expected =
-            "{CAT=Optional[Animal[name=Barsik, type=CAT, sex=M, age=10, height=35, weight=50, bites=true]], " +
-                "DOG=Optional[Animal[name=Pushoki, type=DOG, sex=M, age=10, height=40, weight=50, bites=true]], " +
-                "FISH=Optional[Animal[name=Pushoki, type=FISH, sex=F, age=10, height=40, weight=50, bites=true]]}";
+        String expected = "{FISH=Optional[Animal[name=Pushoki, type=FISH, sex=F, age=10, height=40, weight=50, bites=true]], " +
+            "CAT=Optional[Animal[name=Barsik, type=CAT, sex=M, age=10, height=35, weight=50, bites=true]], " +
+            "DOG=Optional[Animal[name=Pushoki, type=DOG, sex=M, age=10, height=40, weight=50, bites=true]]}";
         assertEquals(expected, actual);
     }
 
@@ -234,9 +233,9 @@ class TaskTest {
         List<Animal> list = Arrays.asList(anim1, anim2, anim3, anim4);
         String actual = task.task16(list).toString();
         String expected = "[Animal[name=Barsik, type=CAT, sex=M, age=4, height=35, weight=50, bites=true], " +
+            "Animal[name=Sasha, type=CAT, sex=F, age=10, height=101, weight=55, bites=true], " +
             "Animal[name=Pushoki, type=DOG, sex=M, age=4, height=460, weight=50, bites=false], " +
-            "Animal[name=Pushoki, type=FISH, sex=F, age=15, height=120, weight=50, bites=true], " +
-            "Animal[name=Sasha, type=CAT, sex=F, age=10, height=101, weight=55, bites=true]]";
+            "Animal[name=Pushoki, type=FISH, sex=F, age=15, height=120, weight=50, bites=true]]";
         assertEquals(expected, actual);
     }
 
@@ -260,16 +259,44 @@ class TaskTest {
         Animal anim1 = new Animal("Barsik", Animal.Type.FISH, Animal.Sex.M, 4, 35, 50, true);
         Animal anim2 = new Animal("Sasha", Animal.Type.FISH, Animal.Sex.F, 10, 101, 55, true);
         Animal anim3 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.M, 4, 460, 50, false);
-        Animal anim4 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
-        Animal anim5 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
-        Animal anim6 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
-        Animal anim7 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
+        Animal anim4 = new Animal("Pushok", Animal.Type.FISH, Animal.Sex.F, 1, 120, 40, true);
+        Animal anim5 = new Animal("Pushoi", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
+        Animal anim6 = new Animal("Puhoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
+        Animal anim7 = new Animal("Pusoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
         List<Animal> list1 = Arrays.asList(anim1, anim2, anim3, anim4);
         List<Animal> list2 = Arrays.asList(anim2, anim3, anim4, anim5);
         List<Animal> list3 = Arrays.asList(anim4, anim5, anim6, anim7);
         List<List<Animal>> list = Arrays.asList(list1, list2, list3);
         Animal actual = task.task18(list);
         Animal expected = anim2;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("19 задание")
+    void task19() {
+        Task task = new Task();
+        Animal anim1 = new Animal("Barsik", Animal.Type.CAT, Animal.Sex.M, 4, 35, 50, true);
+        Animal anim2 = new Animal("Sasha", Animal.Type.CAT, Animal.Sex.F, -3, 101, 55, true);
+        Animal anim3 = new Animal("Pushok", Animal.Type.DOG, Animal.Sex.M, 4, 460, 50, false);
+        Animal anim4 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
+        List<Animal> list = Arrays.asList(anim1, anim2, anim3, anim4);
+        String actual = task.task19(list).toString();
+        String expected = "{Sasha=[edu.hw4.ValidationError@5e316c74]}";
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("20 задание")
+    void task20() {
+        Task task = new Task();
+        Animal anim1 = new Animal("Barsik", Animal.Type.CAT, Animal.Sex.M, 4, 35, 50, true);
+        Animal anim2 = new Animal("Sasha", Animal.Type.CAT, Animal.Sex.F, -3, 101, 55, true);
+        Animal anim3 = new Animal("Pushok", Animal.Type.DOG, Animal.Sex.M, 4, 460, 50, false);
+        Animal anim4 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
+        List<Animal> list = Arrays.asList(anim1, anim2, anim3, anim4);
+        String actual = task.task20(list).toString();
+        String expected = "{Sasha=age : Age is a negative number}";
         assertEquals(expected, actual);
     }
 }
