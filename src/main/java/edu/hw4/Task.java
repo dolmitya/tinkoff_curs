@@ -165,23 +165,23 @@ public class Task {
 
     //Найти самую тяжелую рыбку в 2-х или более списках -> Animal
     public Animal task18(List<List<Animal>> animals) {
-        if (animals.isEmpty())
+        if (animals.isEmpty()) {
             return null;
+        }
         Animal maxFish = null, maxFish0;
         maxFish0 = animals.get(0).stream()
             .filter(animal -> animal.type() == Animal.Type.FISH)
             .max(Comparator.comparing(Animal::weight)).get();
-        for (int i=1; i< animals.size(); i++)
-        {
+        for (int i = 1; i < animals.size(); i++) {
             if (maxFish0 == animals.get(i).stream()
                 .filter(animal -> animal.type() == Animal.Type.FISH)
-                .max(Comparator.comparing(Animal::weight)).get()){
-                maxFish=maxFish0;
+                .max(Comparator.comparing(Animal::weight)).get()) {
+                maxFish = maxFish0;
             }
 
             if (maxFish0.weight() < animals.get(i).stream()
                 .filter(animal -> animal.type() == Animal.Type.FISH)
-                .max(Comparator.comparing(Animal::weight)).get().weight()){
+                .max(Comparator.comparing(Animal::weight)).get().weight()) {
                 maxFish0 = animals.get(i).stream()
                     .filter(animal -> animal.type() == Animal.Type.FISH)
                     .max(Comparator.comparing(Animal::weight)).get();
