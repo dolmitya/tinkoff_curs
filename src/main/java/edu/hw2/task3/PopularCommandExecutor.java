@@ -14,8 +14,7 @@ public class PopularCommandExecutor {
     PopularCommandExecutor(int maxAttempts) {
         final int intBOUND = 2;
         Random random = new Random();
-        manager = (random.nextInt(intBOUND) == 1) ? new DefaultConnectionManager()
-            : new FaultyConnectionManager();
+        manager = (random.nextInt(intBOUND) == 1) ? new DefaultConnectionManager() : new FaultyConnectionManager();
         this.maxAttempts = maxAttempts;
     }
 
