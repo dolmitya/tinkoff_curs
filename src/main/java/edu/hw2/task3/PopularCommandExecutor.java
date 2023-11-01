@@ -7,15 +7,15 @@ public class PopularCommandExecutor {
     public PopularCommandExecutor() {
     }
 
-    final static String ERROR = "Error";
-    private ConnectManage.ConnectionManager manager;
+    private static final String ERROR = "Error";
+    private ConnectionManager manager;
     private int maxAttempts;
 
     PopularCommandExecutor(int maxAttempts) {
         final int intBOUND = 2;
         Random random = new Random();
-        manager = (random.nextInt(intBOUND) == 1) ? new ConnectManage.DefaultConnectionManager()
-            : new ConnectManage.FaultyConnectionManager();
+        manager = (random.nextInt(intBOUND) == 1) ? new DefaultConnectionManager()
+            : new FaultyConnectionManager();
         this.maxAttempts = maxAttempts;
     }
 
@@ -24,19 +24,19 @@ public class PopularCommandExecutor {
     }
 
     void tryExecute(String command) throws Exception {
-        final Connect.Connection connection = manager.getConnection();
+        final Connection connection = manager.getConnection();
         boolean fl = true;
         if (maxAttempts == 0) {
-            throw new Task3.ConnectionException(ERROR, new RuntimeException());
+            throw new ConnectionException(ERROR, new RuntimeException());
         }
         for (int cnt = 1; cnt <= maxAttempts && fl; cnt++) {
-            try {
+            try (connection) {
                 connection.execute(command);
                 fl = false;
-            } catch (Task3.ConnectionException e) {
+            } catch (ConnectionException e) {
                 fl = true;
                 if (cnt == maxAttempts) {
-                    throw new Task3.ConnectionException(ERROR, new RuntimeException());
+                    throw new ConnectionException(ERROR, new RuntimeException());
                 }
             }
         }

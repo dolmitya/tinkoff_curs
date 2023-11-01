@@ -5,12 +5,12 @@ import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("uncommentedmain")
 public class Task1 {
-    final static int FOUR = 4;
+    private static final int FOUR = 4;
 
     private Task1() {
     }
 
-    private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     public static void main(String[] args) {
         Scanner cin = new Scanner(System.in);

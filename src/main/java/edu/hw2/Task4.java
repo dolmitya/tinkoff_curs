@@ -8,7 +8,7 @@ public class Task4 {
     private Task4() {
     }
 
-    private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
+    private static final org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     protected static CallingInfo callingInfo() {
         try {

@@ -11,10 +11,4 @@ public class Task3 {
         executor = new PopularCommandExecutor(1);
         executor.updatePackages();
     }
-
-    public static class ConnectionException extends RuntimeException {
-        public ConnectionException(String message, Throwable cause) {
-            super(message, cause);
-        }
-    }
 }
