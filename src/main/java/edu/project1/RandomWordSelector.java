@@ -5,11 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Random;
-import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("RegexpSinglelineJava")
 public class RandomWordSelector {
-    private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private String[] words = new String[0];
 
     public RandomWordSelector() {

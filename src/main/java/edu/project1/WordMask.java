@@ -4,12 +4,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import org.apache.logging.log4j.LogManager;
 
 @SuppressWarnings("RegexpSinglelineJava")
 public class WordMask {
     private String word;
-    private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
     private String[] mask;
     private int numberGuessletter = 0;
     private final Set<String> usedLetters = new HashSet<>();

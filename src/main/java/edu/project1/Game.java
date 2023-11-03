@@ -1,14 +1,24 @@
 package edu.project1;
 
 import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.Set;
 
-@SuppressWarnings("RegexpSinglelineJava")
 public class Game {
+    private final RandomWordSelector wordSelector = new RandomWordSelector();
+    private final WordMask maskOperator = new WordMask();
+    int mistakesCount;
+    private final Scanner scanner;
+    private ByteArrayOutputStream outputStream;
+    private final PrintStream stream;
+    private String letter;
+    final static int WRONG_COUNT_MISTAKES = -1;
+    final static int MAX_COUNT_MISTAKES = 5;
     public Game() {
         scanner = new Scanner(System.in);
+        stream = System.out;
     }
 
     public Game(String in) {
@@ -21,16 +31,6 @@ public class Game {
     public String getOut() {
         return outputStream.toString();
     }
-
-    final static int WRONG_COUNT_MISTAKES = -1;
-    final static int MAX_COUNT_MISTAKES = 5;
-    private final RandomWordSelector wordSelector = new RandomWordSelector();
-    private final WordMask maskOperator = new WordMask();
-    int mistakesCount;
-    private Scanner scanner;
-    private ByteArrayOutputStream outputStream;
-    private PrintStream stream;
-    private String letter;
 
     private void input() {
         boolean flag = true;
@@ -98,6 +98,7 @@ public class Game {
                     }
                 }
                 if (mistakesCount == MAX_COUNT_MISTAKES) {
+                    System.out.print("\n>Загаданное слово: " + wordSelector);
                     System.out.print("\n>You lost!");
                     flag = true;
                     break;
