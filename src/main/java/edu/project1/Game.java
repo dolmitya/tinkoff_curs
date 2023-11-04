@@ -97,8 +97,8 @@ public class Game {
                     }
                 }
                 if (mistakesCount == MAX_COUNT_MISTAKES) {
-                    System.out.print("\n>Загаданное слово: " + wordSelector);
                     System.out.print("\n>You lost!");
+                    System.out.print("\n>The word: " + guessedWord);
                     flag = true;
                     break;
                 }
