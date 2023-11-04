@@ -1,7 +1,6 @@
 package edu.project1;
 
 import java.io.ByteArrayOutputStream;
-import java.io.OutputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.Set;
