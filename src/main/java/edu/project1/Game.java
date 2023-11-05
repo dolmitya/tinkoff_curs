@@ -5,16 +5,18 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.Set;
 
+@SuppressWarnings("RegexpSinglelineJava")
 public class Game {
     private final RandomWordSelector wordSelector = new RandomWordSelector();
     private final WordMask maskOperator = new WordMask();
-    int mistakesCount;
+    private int mistakesCount;
     private final Scanner scanner;
     private ByteArrayOutputStream outputStream;
     private final PrintStream stream;
     private String letter;
     final static int WRONG_COUNT_MISTAKES = -1;
     final static int MAX_COUNT_MISTAKES = 5;
+
     public Game() {
         scanner = new Scanner(System.in);
         stream = System.out;
