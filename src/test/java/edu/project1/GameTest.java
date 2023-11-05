@@ -22,7 +22,7 @@ class GameTest {
         Game initialization = new Game("a\ny\ni\no\nf\nE");
         initialization.start("rect");
         String str=initialization.getOut();
-        String actual = str.substring(str.length()-37,str.length()-28);
+        String actual = str.substring(str.length()-53,str.length()-44);
         String expected = "You lost!";
         assertEquals(expected, actual);
     }
