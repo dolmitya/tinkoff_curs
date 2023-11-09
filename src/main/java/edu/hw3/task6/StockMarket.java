@@ -6,7 +6,7 @@ interface StockMarket {
     void add(Stock stock);
 
     /** Удалить акцию */
-    void remove(Stock stock);
+    boolean remove(Stock stock);
 
     /** Самая дорогая акция */
     Stock mostValuableStock();

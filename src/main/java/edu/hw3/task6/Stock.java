@@ -4,9 +4,9 @@ import java.util.Random;
 
 public class Stock implements Comparable<Stock> {
 
-    private int price;
+    private final int price;
 
-    final static int THOUSAND = 1000;
+    private final static int THOUSAND = 1000;
 
     public Stock() {
         Random random = new Random();
@@ -22,12 +22,6 @@ public class Stock implements Comparable<Stock> {
     }
 
     public int compareTo(Stock obj) {
-        if (obj.getPrice() > price) {
-            return 1;
-        } else if (obj.getPrice() < price) {
-            return -1;
-        } else {
-            return 0;
-        }
+        return Integer.compare(obj.getPrice(), price);
     }
 }

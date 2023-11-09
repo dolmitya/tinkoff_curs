@@ -1,25 +1,25 @@
-package edu.hw3;
+package edu.hw3.task4;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Task4 {
+    private final static int FOUR = 4;
+    private final static int FIVE = 5;
+    private final static int NINE = 9;
+    private final static int TEN = 10;
+    private final static int FOURTY = 40;
+    private final static int FIFTY = 50;
+    private final static int NINETY = 90;
+    private final static int HUNDRED = 100;
+    private final static int FOURHUNDRED = 400;
+    private final static int FIVEHUNDRED = 500;
+    private  final static int NINEHUNDRED = 900;
+    private  final static int THOUSAND = 1000;
+    private static LinkedHashMap<Integer, String> map;
+
     private Task4() {
     }
-
-    final static int FOUR = 4;
-    final static int FIVE = 5;
-    final static int NINE = 9;
-    final static int TEN = 10;
-    final static int FOURTY = 40;
-    final static int FIFTY = 50;
-    final static int NINETY = 90;
-    final static int HUNDRED = 100;
-    final static int FOURHUNDRED = 400;
-    final static int FIVEHUNDRED = 500;
-    final static int NINEHUNDRED = 900;
-    final static int THOUSAND = 1000;
-    private static LinkedHashMap<Integer, String> map;
 
     private static void encoder() {
         map = new LinkedHashMap<>();
@@ -51,9 +51,7 @@ public class Task4 {
             String value = entry.getValue();
             var d = res / key;
             res = res % key;
-            for (int j = 0; j < d; j++) {
-                ret.append(value);
-            }
+            ret.append(String.valueOf(value).repeat(Math.max(0, d)));
         }
 
         return ret.toString();

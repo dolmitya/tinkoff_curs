@@ -13,14 +13,12 @@ public class Market implements StockMarket {
         priorityQueue.add(stock);
     }
 
-    public void remove(Stock stock) {
+    public boolean remove(Stock stock) {
         if (!priorityQueue.isEmpty()) {
             priorityQueue.remove(stock);
+            return true;
         }
-    }
-
-    public Stock remove() {
-        return priorityQueue.remove();
+        return false;
     }
 
     @Override

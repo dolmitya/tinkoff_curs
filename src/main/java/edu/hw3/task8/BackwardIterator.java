@@ -1,20 +1,19 @@
 package edu.hw3.task8;
 
-import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 public class BackwardIterator<T> implements Iterator<T> {
 
-    private Integer index;
-    private final Collection<T> collection;
-    private T[] mas;
+    private Integer index = 0;
+    private final List<T> list;
 
     public BackwardIterator(Class<T> c, Collection<T> coll) {
         this.index = coll.size();
-        this.collection = coll;
-        final T[] a = (T[]) Array.newInstance(c, index);
-        this.mas = a;
+        list = new ArrayList<>(coll);
     }
 
     @Override
@@ -25,10 +24,9 @@ public class BackwardIterator<T> implements Iterator<T> {
     @Override
     public T next() {
         if (!hasNext()) {
-            return null;
+            throw new NoSuchElementException();
         }
-        collection.toArray(mas);
         index--;
-        return mas[index];
+        return list.get(index);
     }
 }

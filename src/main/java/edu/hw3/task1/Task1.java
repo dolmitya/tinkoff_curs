@@ -1,25 +1,21 @@
-package edu.hw3;
+package edu.hw3.task1;
 
 import java.util.HashMap;
-import java.util.Scanner;
-import org.apache.logging.log4j.LogManager;
 
-@SuppressWarnings("uncommentedmain")
 public class Task1 {
-    private Task1() {
-    }
-
-    private final static org.apache.logging.log4j.Logger LOGGER = LogManager.getLogger();
 
     private static HashMap<Character, Character> hashMap;
 
+    private Task1() {
+    }
+
     private static void encoder() {
         hashMap = new HashMap<>();
-        for (char l = 'a', r = 'z'; l <= 'm' && 'n' <= r; ++l, --r) {
+        for (char l = 'a', r = 'z'; l <= 'm'; ++l, --r) {
             hashMap.put(l, r);
             hashMap.put(r, l);
         }
-        for (char l = 'A', r = 'Z'; l <= 'M' && 'N' <= r; ++l, --r) {
+        for (char l = 'A', r = 'Z'; l <= 'M'; ++l, --r) {
             hashMap.put(l, r);
             hashMap.put(r, l);
         }
@@ -34,13 +30,5 @@ public class Task1 {
             }
         }
         return str;
-    }
-
-    public static void main(String[] args) {
-        Scanner cin = new Scanner(System.in);
-        LOGGER.info("Input a string: ");
-        String str = cin.nextLine();
-        LOGGER.info(atbash(str));
-        cin.close();
     }
 }
