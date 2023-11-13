@@ -7,34 +7,34 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Task3 {
-    private static final Pattern FIRST_PATTERN =
+    private final static Pattern FIRST_PATTERN =
         Pattern.compile("^(0|[1-9]\\d*)-(0[1-9]|1[0-2])-(0[1-9]|[1-2]\\d|3[0-1])$");
 
-    private static final Pattern SECOND_PATTERN =
+    private final static Pattern SECOND_PATTERN =
         Pattern.compile("^(0|[1-9]\\d*)-([1-9]|1[0-2])-([1-9]|[1-2]\\d|3[0-1])$");
 
-    private static final Pattern THIRD_PATTERN =
+    private final static Pattern THIRD_PATTERN =
         Pattern.compile("^([1-9]|1[0-2])/([1-9]|[1-2]\\d|3[0-1])/(0\\d|[1-9]\\d)$");
 
-    private static final Pattern FOURTH_PATTERN =
+    private final static Pattern FOURTH_PATTERN =
         Pattern.compile("^([1-9]|1[0-2])/([1-9]|[1-2]\\d|3[0-1])/(0|[1-9]\\d*)$");
 
-    private static final Pattern FIFTH_PATTERN =
+    private final static Pattern FIFTH_PATTERN =
         Pattern.compile("^tomorrow$");
 
-    private static final Pattern SIXTH_PATTERN =
+    private final static Pattern SIXTH_PATTERN =
         Pattern.compile("^today$");
 
-    private static final Pattern SEVENTH_PATTERN =
+    private final static Pattern SEVENTH_PATTERN =
         Pattern.compile("^yesterday$");
 
-    private static final Pattern EIGHTH_PATTERN =
+    private final static Pattern EIGHTH_PATTERN =
         Pattern.compile("^1 day ago$");
 
-    private static final Pattern NINTH_PATTERN =
+    private final static Pattern NINTH_PATTERN =
         Pattern.compile("^(1\\d+|[2-9]\\d*) days ago$");
 
-    private static final List<Pattern> LIST_OF_PATTERN =
+    private final static List<Pattern> LIST_OF_PATTERN =
         List.of(
             FIRST_PATTERN,
             SECOND_PATTERN,
@@ -47,15 +47,15 @@ public class Task3 {
             NINTH_PATTERN
         );
 
-    private static final int FOURTH_PATTERN_MATCH = 3;
+    private final static int FOURTH_PATTERN_MATCH = 3;
 
-    private static final int FIFTH_PATTERN_MATCH = 4;
+    private final static int FIFTH_PATTERN_MATCH = 4;
 
-    private static final int SIXTH_PATTERN_MATCH = 5;
+    private final static int SIXTH_PATTERN_MATCH = 5;
 
-    private static final int SEVENTH_PATTERN_MATCH = 6;
+    private final static int SEVENTH_PATTERN_MATCH = 6;
 
-    private static final int EIGHTH_PATTERN_MATCH = 7;
+    private final static int EIGHTH_PATTERN_MATCH = 7;
 
     private Task3() {
 

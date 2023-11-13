@@ -5,15 +5,15 @@ import java.util.regex.Pattern;
 
 public class Task7 {
     //содержит не менее 3 символов, причем третий символ равен 0
-    public static final Pattern STRING_PATTERN_1 =
+    public final static Pattern STRING_PATTERN_1 =
         Pattern.compile("^[01]{2}0[01]*$");
 
     //начинается и заканчивается одним и тем же символом
-    public static final Pattern STRING_PATTERN_2 =
+    public final static Pattern STRING_PATTERN_2 =
         Pattern.compile("^(((1[01]*1)|1)|((0[01]*0)|0))$");
 
     //длина не менее 1 и не более 3
-    public static final Pattern STRING_PATTERN_3 =
+    public final static Pattern STRING_PATTERN_3 =
         Pattern.compile("^[01]{1,3}$");
 
     private Task7() {

@@ -9,9 +9,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Task2 {
-    final static int FIRST_MONTH = 1;
-    final static int THIRD_GROUP = 3;
-    final static int THIRTEENTH_MONTH = 13;
+    private final static int FIRST_MONTH = 1;
+    private final static int THIRD_GROUP = 3;
+    private final static int THIRTEENTH_MONTH = 13;
     private static final Pattern DATA_PATTERN = Pattern.compile("^(\\d+)-(0[1-9]|1[0-2])-(0[1-9]|[1-2]\\d|3[0-1])$");
 
     private Task2() {

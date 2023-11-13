@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Task4 {
-    public static final Pattern PASSWORD_PATTERN = Pattern.compile("\\w*[~!@#$%^&*|]\\w*");
+    private final static Pattern PASSWORD_PATTERN = Pattern.compile("\\w*[~!@#$%^&*|]\\w*");
 
     private Task4() {
     }
