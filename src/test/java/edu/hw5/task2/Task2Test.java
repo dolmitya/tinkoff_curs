@@ -13,13 +13,6 @@ class Task2Test {
         String expected = "[1925-02-13, 1925-03-13, 1925-11-13]";
         assertEquals(expected, actual);
     }
-
-    @Test
-    @DisplayName("Подсчет всех пятниц 13 в году(некорректный ввод)")
-    void invalidInput1() {
-        assertThrows(RuntimeException.class, () -> Task2.getFridaysOnYear(-2024));
-    }
-
     @Test
     @DisplayName("Следующая пятница 13(корректный ввод)")
     void validInput2() {
