@@ -215,13 +215,15 @@ class TaskTest {
     @DisplayName("15 задание")
     void task15() {
         Task task = new Task();
-        Animal anim1 = new Animal("Barsik", Animal.Type.CAT, Animal.Sex.M, 4, 35, 50, true);
+        Animal anim1 = new Animal("Barsik", Animal.Type.CAT, Animal.Sex.M, 3, 35, 50, true);
         Animal anim2 = new Animal("Sasha", Animal.Type.CAT, Animal.Sex.F, 10, 101, 55, true);
         Animal anim3 = new Animal("Pushok", Animal.Type.DOG, Animal.Sex.M, 4, 460, 50, false);
         Animal anim4 = new Animal("Sashok", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
         List<Animal> list = Arrays.asList(anim1, anim2, anim3, anim4);
-        Integer actual = task.task15(list, 9, 16);
-        Integer expected = 105;
+        Map<Animal.Type, Integer> actual = task.task15(list, 3, 15);
+        Map<Animal.Type, Integer> expected = new HashMap<>();
+        expected.put(Animal.Type.CAT, 55);
+        expected.put(Animal.Type.DOG, 50);
         assertEquals(expected, actual);
     }
 
@@ -269,8 +271,7 @@ class TaskTest {
         List<Animal> list1 = Arrays.asList(anim1, anim2, anim3, anim4);
         List<Animal> list2 = Arrays.asList(anim2, anim3, anim4, anim5);
         List<Animal> list3 = Arrays.asList(anim4, anim5, anim6, anim7);
-        List<List<Animal>> list = Arrays.asList(list1, list2, list3);
-        Animal actual = task.task18(list);
+        Animal actual = task.task18(list1, list2, list3);
         Animal expected = anim2;
         assertEquals(expected, actual);
     }
