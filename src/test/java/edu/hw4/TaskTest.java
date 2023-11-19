@@ -300,7 +300,7 @@ class TaskTest {
         Animal anim4 = new Animal("Pushoki", Animal.Type.FISH, Animal.Sex.F, 15, 120, 50, true);
         List<Animal> list = Arrays.asList(anim1, anim2, anim3, anim4);
         String actual = task.task20(list).toString();
-        String expected = "{Sasha=age : Age is a negative number}";
+        String expected = "{Sasha=[age : Age is a negative number], Pushok=[], Pushoki=[], Barsik=[]}";
         assertEquals(expected, actual);
     }
 }
