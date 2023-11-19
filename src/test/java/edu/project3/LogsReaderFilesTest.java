@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -69,9 +70,9 @@ public class LogsReaderFilesTest {
         Files.createFile(second);
         Files.writeString(second, LOG);
 
-        var stream = LogsReader.readLogsFromFiles(DIRECTORY_PATH + "/*");
-
-        assertThat(stream.count()).isEqualTo(2);
+        var actual = LogsReader.readLogsFromFiles(DIRECTORY_PATH + "/*").count();
+        var expected=2;
+        assertEquals(actual, expected);
     }
 
     @Test
