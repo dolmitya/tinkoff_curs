@@ -103,8 +103,8 @@ public class MetricsToStringTest {
 
         Metrics metrics = collector.getMetrics();
 
-        assertThat(MetricsToString.adoc(metrics))
-            .isEqualTo("== Общая информация\n" +
+        assertThat(MetricsToString.adoc(metrics)
+            .equals("== Общая информация\n" +
                 "\n" +
                 "[options=\"header\"]\n" +
                 "[cols=\"1,1\"]\n" +
@@ -136,7 +136,7 @@ public class MetricsToStringTest {
                 "|201|Created|1\n" +
                 "|202|Accepted|1\n" +
                 "|===\n" +
-                "\n");
+                "\n"));
     }
 
     @Test
@@ -174,8 +174,8 @@ public class MetricsToStringTest {
 
         Metrics metrics = collector.getMetrics();
 
-        assertThat(MetricsToString.adoc(metrics))
-            .isEqualTo("== Общая информация\n" +
+        assertThat(MetricsToString.adoc(metrics)
+            .equals("== Общая информация\n" +
                 "\n" +
                 "[options=\"header\"]\n" +
                 "[cols=\"1,1\"]\n" +
@@ -203,6 +203,6 @@ public class MetricsToStringTest {
                 "|===\n" +
                 "|Статус|Имя|Количество\n" +
                 "|===\n" +
-                "\n");
+                "\n"));
     }
 }
