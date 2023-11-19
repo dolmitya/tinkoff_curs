@@ -10,13 +10,7 @@ public class DateTimeFromFilter implements Predicate<LocalDateTime> {
         this.from = from;
     }
 
-    /**
-     * Evaluates this predicate on the given argument.
-     *
-     * @param localDateTime the input argument
-     * @return {@code true} if the input argument matches the predicate,
-     * otherwise {@code false}
-     */
+    //Evaluates this predicate on the given argument
     @Override
     public boolean test(LocalDateTime localDateTime) {
         return !this.from.isAfter(localDateTime);

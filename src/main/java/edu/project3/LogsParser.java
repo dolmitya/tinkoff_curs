@@ -18,12 +18,7 @@ public class LogsParser {
 
     private LogsParser() {}
 
-    /**
-     * Генератор паттерна логов для матчера.
-     * Генерирует один раз, далее отдает сгенерированный
-     *
-     * @return паттерн
-     */
+    //Генератор паттерна логов для матчера
     @SuppressWarnings("checkstyle:MultipleStringLiterals")
     private static String generateLogPattern() {
         if (generatedPattern != null) {
@@ -55,12 +50,7 @@ public class LogsParser {
         return generatedPattern;
     }
 
-    /**
-     * Парсер строки логов, разбивает на токены
-     *
-     * @param logString входная строка логов
-     * @return токены строки; если строка представлена не в верном формате, возвращает null
-     */
+    //Парсер строки логов, разбивает на токены
     @SuppressWarnings("checkstyle:MagicNumber")
     public static LogString parseString(@NotNull String logString, String source) {
         Matcher matcher = Pattern.compile(generateLogPattern()).matcher(logString);
