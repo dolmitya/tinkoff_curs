@@ -17,9 +17,10 @@ public class HackerNews {
     private HackerNews() {
     }
 
-    public static long[] hackerNewsTopStories() {
+    public static long[] hackerNewsTopStories()  {
         long[] data = new long[0];
-        try (HttpClient client = newHttpClient()) {
+        try {
+            HttpClient client = newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://hacker-news.firebaseio.com/v0/topstories.json"))
                 .build();
@@ -43,7 +44,8 @@ public class HackerNews {
         String newsTitle = null;
         StringBuilder uriId = new StringBuilder();
         uriId.append("https://hacker-news.firebaseio.com/v0/item/").append(id).append(".json");
-        try (HttpClient client = newHttpClient()) {
+        try {
+            HttpClient client = newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(uriId.toString()))
                 .build();

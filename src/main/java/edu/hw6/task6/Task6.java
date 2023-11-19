@@ -33,26 +33,25 @@ public class Task6 {
     }
 
     public static void someConnections() {
-        MAP_OF_CONNECTION.put(23, "Telnet");
-        MAP_OF_CONNECTION.put(110, "POP3 ");
-        MAP_OF_CONNECTION.put(143, "IMAP");
-        MAP_OF_CONNECTION.put(123, "NTP ");
+        MAP_OF_CONNECTION.put(135, "Telnet");
+        MAP_OF_CONNECTION.put(137, "POP3 ");
+        MAP_OF_CONNECTION.put(138, "IMAP");
+        MAP_OF_CONNECTION.put(139, "NTP ");
         MAP_OF_CONNECTION.put(445, "SMB");
-        MAP_OF_CONNECTION.put(548, "AFP");
-        MAP_OF_CONNECTION.put(8080, "HTTP Proxy");
-        MAP_OF_CONNECTION.put(1080, "SOCKS");
-        MAP_OF_CONNECTION.put(1723, "PPTP ");
-        MAP_OF_CONNECTION.put(3128, "Squid");
-        MAP_OF_CONNECTION.put(80, "HTTP");
-        MAP_OF_CONNECTION.put(21, "FTP");
-        MAP_OF_CONNECTION.put(25, "SMTP");
-        MAP_OF_CONNECTION.put(22, "SSH");
-        MAP_OF_CONNECTION.put(443, "HTTPS");
-        MAP_OF_CONNECTION.put(53, "DNS");
-        MAP_OF_CONNECTION.put(3306, "MySQL");
-        MAP_OF_CONNECTION.put(5432, "PostgreSQL");
-        MAP_OF_CONNECTION.put(3389, "RDP");
-        MAP_OF_CONNECTION.put(27017, "MongoDB");
+        MAP_OF_CONNECTION.put(546, "AFP");
+        MAP_OF_CONNECTION.put(1900, "HTTP Proxy");
+        MAP_OF_CONNECTION.put(2177, "SOCKS");
+        MAP_OF_CONNECTION.put(3702, "PPTP ");
+        MAP_OF_CONNECTION.put(5040, "Squid");
+        MAP_OF_CONNECTION.put(5050, "HTTP");
+        MAP_OF_CONNECTION.put(5353, "FTP");
+        MAP_OF_CONNECTION.put(5355, "SMTP");
+        MAP_OF_CONNECTION.put(9010, "SSH");
+        MAP_OF_CONNECTION.put(9080, "HTTPS");
+        MAP_OF_CONNECTION.put(9100, "DNS");
+        MAP_OF_CONNECTION.put(9180, "MySQL");
+        MAP_OF_CONNECTION.put(45654, "PostgreSQL");
+        MAP_OF_CONNECTION.put(48510, "RDP");
     }
 
     public static void scannPort() {

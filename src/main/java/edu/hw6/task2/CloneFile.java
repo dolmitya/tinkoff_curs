@@ -7,8 +7,10 @@ import java.nio.file.Path;
 public class CloneFile {
     private static final String DOT = "\\.";
 
-    private CloneFile() {}
+    private CloneFile() {
+    }
 
+    @SuppressWarnings("checkstyle:ReturnCount")
     public static void cloneFile(Path path) throws IOException {
         if (!Files.exists(path)) {
             return;
@@ -45,8 +47,7 @@ public class CloneFile {
 
             if (Files.exists(newPath)) {
                 i++;
-            }
-            else {
+            } else {
                 Files.copy(path, newPath);
                 return;
             }
