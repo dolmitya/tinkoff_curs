@@ -49,7 +49,7 @@ public class ValidationError {
     }
 
     public String checkUpdate(Animal animal) {
-        List<String> s=new ArrayList<>();
+        List<String> s = new ArrayList<>();
         if (animal.name() == null) {
             s.add("name : Name is null");
         }
