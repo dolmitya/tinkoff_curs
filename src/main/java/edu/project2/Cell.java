@@ -16,6 +16,11 @@ public class Cell {
         this.type = type;
     }
 
+    public Cell(int row, int col) {
+        this.row = row;
+        this.col = col;
+    }
+
     public int getRow() {
         return row;
     }
