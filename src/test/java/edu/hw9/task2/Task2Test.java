@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class Task2Test {
 
     private Path tempDir = Files.createTempDirectory(
-        Path.of("src/test/java/edu/hw9/Task2/Directory"),
+        Path.of("src/test/java/edu/hw9/task2/Directory"),
         "dir_"
     );
 
@@ -47,7 +47,7 @@ public class Task2Test {
         createDir(tempDir, 0);
         List<Path> answer = new ArrayList<>();
         DirectoryWithMoreThanThousandFiles directoryWithMoreThanThousandFiles =
-            new DirectoryWithMoreThanThousandFiles(Path.of("src/test/java/edu/hw9/Task2/Directory"), answer);
+            new DirectoryWithMoreThanThousandFiles(Path.of("src/test/java/edu/hw9/task2/Directory"), answer);
         ForkJoinPool forkJoinPool = new ForkJoinPool();
 
         // when
@@ -71,7 +71,7 @@ public class Task2Test {
                 size,
                 extension,
                 answer,
-                Path.of("src/test/java/edu/hw9/Task2/Directory")
+                Path.of("src/test/java/edu/hw9/task2/Directory")
             );
         ForkJoinPool forkJoinPool = new ForkJoinPool();
 
