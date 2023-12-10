@@ -13,11 +13,14 @@ public class Project2 {
     }
 
     public static void main(String[] args) {
-        Maze lab = new Maze();
         Cell start = new Cell(BEGIN, BEGIN, Cell.Type.PASSAGE, false);
         Cell finish = new Cell(END, END, Cell.Type.PASSAGE, false);
-        lab = lab.generate(SIZE, SIZE);
-        LOGGER.info("\n" + lab.print() + "\n");
-        LOGGER.info("\n" + lab.print(lab.solve(lab, start, finish)));
+        Maze maze;
+        GeneratorMaze generator = new GeneratorMaze();
+        RenderMaze render = new RenderMaze();
+        maze = generator.generate(SIZE, SIZE);
+        LOGGER.info("\n" + render.print(maze) + "\n");
+        SolverMaze solv = new SolverMaze();
+        LOGGER.info("\n" + render.print(maze, solv.solve(maze, start, finish)));
     }
 }
