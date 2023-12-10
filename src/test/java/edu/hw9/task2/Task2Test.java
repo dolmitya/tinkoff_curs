@@ -71,7 +71,7 @@ public class Task2Test {
                 size,
                 extension,
                 answer,
-                Path.of("src/test/java/edu/hw9/task2/Directory")
+                Path.of("src/test/java/edu/hw9/Task2/Directory")
             );
         ForkJoinPool forkJoinPool = new ForkJoinPool();
 
