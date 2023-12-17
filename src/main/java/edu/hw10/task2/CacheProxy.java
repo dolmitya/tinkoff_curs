@@ -39,7 +39,7 @@ public class CacheProxy implements InvocationHandler {
             cache.putIfAbsent(Arrays.toString(args), new Object[] {result, method.getName()});
             if (method.getAnnotation(Cache.class).persist()) {
                 File tempFile =
-                    File.createTempFile("temp_", ".txt", Path.of("src/main/java/edu/hw10/Task2")
+                    File.createTempFile("temp_", ".txt", Path.of("src/main/java/edu/hw10/task2")
                         .toFile());
                 tempFile.deleteOnExit();
                 try (
