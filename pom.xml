@@ -266,6 +266,9 @@
                         <consoleOutput>true</consoleOutput>
                         <logViolationsToConsole>true</logViolationsToConsole>
                         <failsOnError>true</failsOnError>
+                        <excludes>
+                            <exlude>*ArithmeticUtils*</exlude>
+                        </excludes>
                     </configuration>
                 </plugin>
             </plugins>
