@@ -8,19 +8,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Task2Test {
-
-    public class ArithmeticUtils {
-        public int sum(int a, int b) {
-            return a + b;
-        }
-    }
-
-    public class ArithmeticUtilsWithSumAsMulti {
-        public int sum(int a, int b) {
-            return a * b;
-        }
-    }
-
     @Test
     @DisplayName("Замена + на *")
     void test1() {
@@ -32,6 +19,6 @@ public class Task2Test {
             .make()
             .load(ArithmeticUtils.class.getClassLoader(), ClassReloadingStrategy.fromInstalledAgent());
 
-        assertEquals(25, arithmeticUtils.sum(5, 5));
+        assertEquals(21, arithmeticUtils.sum(7, 3));
     }
 }
