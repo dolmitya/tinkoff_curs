@@ -1,5 +1,7 @@
 package edu.hw10.task2;
 
+import edu.hw10.task2.FibCalculatorImp;
+import edu.hw10.task2.PalindromeImp;
 import java.util.Arrays;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
@@ -14,15 +16,12 @@ public class Task2Test {
     @Test
     @DisplayName("Кеширующий прокси работает для fib")
     void test1() {
-        // given
         FibCalculator fib = new FibCalculatorImp();
         FibCalculator proxyFib = (FibCalculator) CacheProxy.create(fib, fib.getClass());
 
-        // when
         long result = proxyFib.fib(5);
         Map<String, Object[]> cache = CacheProxy.getCache();
 
-        // then
         assertEquals(5, result);
         assertNotNull(cache);
         assertEquals("[[5]]", Arrays.toString(cache.keySet().toArray()));
@@ -32,16 +31,13 @@ public class Task2Test {
     @Test
     @DisplayName("Кеширующий прокси работает для isPalindrome")
     void test2() {
-        // given
         Palindrome palindrome = new PalindromeImp();
         Palindrome proxyPalindrome = (Palindrome) CacheProxy.create(palindrome, palindrome.getClass());
 
-        // when
         boolean result1 = proxyPalindrome.isPalindrome("12321");
         boolean result2 = proxyPalindrome.isPalindrome("12345");
         Map<String, Object[]> cache = CacheProxy.getCache();
 
-        // then
         assertTrue(result1);
         assertFalse(result2);
         assertNotNull(cache);
@@ -52,11 +48,9 @@ public class Task2Test {
     @Test
     @DisplayName("Сохраняются только уникальные значения")
     void test3() {
-        // given
         FibCalculator fib = new FibCalculatorImp();
         FibCalculator proxyFib = (FibCalculator) CacheProxy.create(fib, fib.getClass());
 
-        // when
         proxyFib.fib(5);
         proxyFib.fib(5);
         proxyFib.fib(5);
@@ -64,7 +58,6 @@ public class Task2Test {
         proxyFib.fib(5);
         Map<String, Object[]> cache = CacheProxy.getCache();
 
-        // then
         assertNotNull(cache);
         assertEquals(1, cache.size());
     }
@@ -72,11 +65,9 @@ public class Task2Test {
     @Test
     @DisplayName("Сохраняются только уникальные значения")
     void test4() {
-        // given
         FibCalculator fib = new FibCalculatorImp();
         FibCalculator proxyFib = (FibCalculator) CacheProxy.create(fib, fib.getClass());
 
-        // when
         proxyFib.fib(5);
         proxyFib.fib(1);
         proxyFib.fib(2);
@@ -84,7 +75,6 @@ public class Task2Test {
         proxyFib.fib(4);
         Map<String, Object[]> cache = CacheProxy.getCache();
 
-        // then
         assertNotNull(cache);
         assertEquals(5, cache.size());
     }
