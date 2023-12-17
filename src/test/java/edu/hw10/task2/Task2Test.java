@@ -1,7 +1,5 @@
 package edu.hw10.task2;
 
-import edu.hw10.task2.FibCalculatorImp;
-import edu.hw10.task2.PalindromeImp;
 import java.util.Arrays;
 import java.util.Map;
 import org.junit.jupiter.api.DisplayName;
